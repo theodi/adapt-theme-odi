@@ -1,4 +1,6 @@
-# adapt-contrib-vanilla  
+# adapt-theme-odi
+
+This theme is adapted from the adapt vanilla theme
 
 **Vanilla** is a *theme* bundled with the [Adapt framework](https://github.com/adaptlearning/adapt_framework).  
 
