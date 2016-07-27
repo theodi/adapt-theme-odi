@@ -1,0 +1,23 @@
+{
+  "name": "adapt-theme-odi",
+  "version": "0.0.1",
+  "framework": "^2.0.0",
+  "homepage": "https://github.com/davetaz/adapt-theme-odi",
+  "issues": "https://github.com/davetaz/adapt-theme-odi/issues",
+  "displayName": "odi theme",
+  "theme": "odi",
+  "description": "A custom theme for ODI modules",
+  "main": "js/odi.js",
+  "keywords": [
+    "adapt-plugin",
+    "adapt-theme"
+  ],
+  "license": "GPLv3",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
