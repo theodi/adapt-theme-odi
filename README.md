@@ -24,5 +24,3 @@ Add to block (classes)
 	A dark color for the footer block
 * section-banner
 	Add this to a block to make a thin banner block and reduce top and bottom margins
-
-
