@@ -5,17 +5,34 @@
 @black: #4b4e4f;
 @blue: #078292;
 @light-grey: #78909c;
-@mid-grey: #546e7a;
+@mid-grey: #6d6d6d;
 @dark-grey: #37474f;
 @red: #f26c4f;
 @green: #82ca9c;
+@main-title: #363535;
 
+@default-width:1024px;
+
+@primary-color:#00ace7;
+@secondary-color:#1b87b2;
+@tertiary-color:#0dbc37;
+
+@odi-color-one:#00ace8; // Light blue (secondary )
+@odi-color-two:#f9bc26; //yellow
+@odi-color-three:#ff6700; // dark orange
+@odi-color-four:#0dbc37; //dark green
+@odi-color-five:#722ea5; //purple
+@odi-color-six:#2254F4; //dark blue    
+@odi-color-seven:#D60303;//red 
+@odi-color-eight:#EF3AAB;//pink
+@odi-color-nine:#E6007C ;//magenta
+@odi-color-ten:#1dd3a7;//light green
 
 // Main Colors
 // ===========
 
 // Components
-@primary-color: @blue;
+@primary-color: @odi-color-one;
 @primary-color-inverted: @white;
 // Buttons
 @secondary-color: @black;
@@ -47,16 +64,17 @@
 // Body
 @font-color: @foreground-color;
 @font-color-inverted: @foreground-color-inverted;
-@title-color: @primary-color;
+@title-color: @main-title;
 @title-color-inverted: @primary-color-inverted;
 
 // Buttons
-@button-color: @secondary-color;
+@button-color: @primary-color;
+@button-color-inverted: @primary-color-inverted;
 @button-color-hover: darken(@button-color, 40%);
 @button-color-disabled: @disabled-color;
 
-@button-text-color: @secondary-color-inverted;
-@button-text-color-hover: @secondary-color-inverted;
+@button-text-color: @primary-color-inverted;
+@button-text-color-hover: @primary-color-inverted;
 @button-text-color-disabled: @disabled-color-inverted;
 
 @button-border-color: @button-color;

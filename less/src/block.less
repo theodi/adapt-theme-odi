@@ -36,3 +36,76 @@
         .instruction-text;
     }
 }
+.block {
+    &.inverted, &.summary, &.footer {
+	color: @primary-color-inverted;
+	h1,h2,h3,h4,h5,a {
+            color: @primary-color-inverted;
+        }
+    }
+    &.inverted {
+        .component-title {
+		color: @primary-color-inverted;
+	}
+	.accordian-item-title {
+		background-color: @mid-grey;
+	}
+    	.button, button {
+		background-color: @button-color-inverted;
+    		color: @button-color;
+    		text-decoration: none;
+	}
+	.accordian-item-title {
+		background-color: @mid-grey;
+	}
+    }
+}
+// Section banner (ODI ADDED)
+// ===========================================
+.block {
+    // Section banner
+    &.section-banner-micro {
+        .block-inner {
+            padding: 20px;
+	        font-size: 20px;
+            @media all and (max-width:(@device-width-medium - 1px)) {
+                padding: 10px;
+                font-size: 100%;
+            }
+        }
+    }
+    &.section-banner {
+        .block-inner {
+            padding: 30px 100px;
+            @media all and (max-width:(@device-width-medium - 1px)) {
+                padding: 30px 20px;
+            }
+        }
+        .text-inner {
+            @media all and (max-width:(@device-width-medium - 1px)) {
+                padding-top: 0px;
+                text-align: center;
+            }
+        }
+	.graphic-inner {
+		text-align: center;
+	}
+    }
+    &.footer {
+	.graphic-inner {
+		text-align: center;
+	}
+    }
+    &.social-links {
+    	border-top: 1px solid white;
+    	.social {
+		padding: 5px
+	}
+	.graphic-inner {
+                text-align: left;
+        }
+	.text-body-inner {
+		text-align: right;
+	}
+    }
+}
