@@ -22,3 +22,70 @@
         }
     }
 }
+
+
+// Save Sectioon - In a plugin?
+// =============================
+.save-section-outer {
+    float: left;
+    margin-left: 10px;
+    @media all and (max-width:(@device-width-medium - 1px)) {
+    margin-left: 4px;
+    }
+}
+.save-section {
+    margin-top: 2px;
+    padding-left: 5px;
+    @media all and (max-width:(@device-width-medium - 1px)) {
+        margin-top: 0px;
+    }
+    font-size: 12px;
+    line-height: 1.5em;
+    color: white;
+    min-width: 60px;
+    min-height: 36px;
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: top;
+    padding-left: 5px;
+}
+.saving {
+    background-image: url(assets/cloud_saving.gif);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 60px 36px;
+    padding-top: 20px;
+    @media all and (max-width:(@device-width-medium - 1px)) {
+        padding-top: 10px;
+    }
+}
+.slbutton {
+    font-size: 18px;
+    height: 39px;
+    padding: 6px;
+    margin-right: 0.5em;
+    @media all and (max-width:(@device-width-medium - 1px)) {
+        font-size: 12px;
+        height: 33px;
+        padding: 3px;
+        margin-right: 0em;
+    }
+    border: 1px solid #ed39aa;
+    background-color: #ed39aa;
+    text-dectoration:none;
+    color: white;
+    margin-top: 8px;
+}
+#email_submit {
+    position: relative;
+    margin: 0px;
+}
+.email-input {
+    padding: 5px;
+    font-size: 1.5em;
+    color: gray;
+    width: 50%;
+    @media all and (max-width:(@device-width-medium - 1px)) {
+        width: 80%;
+    }
+}

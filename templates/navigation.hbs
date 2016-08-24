@@ -2,5 +2,12 @@
 {{! All links in the nav bar should have an attritbue of data-event, navigationView uses this to fire a global event}}
 <div class="navigation-inner clearfix" role="navigation" aria-label="{{_globals._accessibility._ariaLabels.navigation}}">
     <button class="base navigation-back-button icon icon-controls-small-left" data-event="backButton" role="button" aria-label="{{_globals._accessibility._ariaLabels.previous}}"></button>
+    <div class="save-section-outer">
+    	<section id="save-section" class="save-section"></section>
+    </div>
     <button class="base navigation-drawer-toggle-button icon icon-list" data-event="toggleDrawer" role="button" aria-label="{{_globals._accessibility._ariaLabels.navigationDrawer}}"></button>
 </div>
+<section id="cloud-status" class="cloud-status">
+	<img id="cloud-status-img"></img>
+	<span id="cloud-status-text"></span>
+</section>
