@@ -21,8 +21,8 @@ define(function(require) {
 		}
 	});
 
-	Adapt.on('emailInput:updated', function() {
-		emailSave();
+	Adapt.on('userDetails:updated', function(user) {
+		emailSave(user);
 		emailPresent = true;
 	});
 
@@ -49,6 +49,11 @@ define(function(require) {
 		var toClass = "cloud_failed";
 		$(sl).css('background-image','url(adapt/css/assets/' + toClass + '.gif)');
 	});
+
+	Adapt.on('trackingHub:getUserDetails', function(user) {
+		checkState(user);
+	});
+
 
 	// Custom bits
 	// ============
@@ -96,24 +101,21 @@ define(function(require) {
 	}
 
 
-	function checkWelcome() {
-		user = localStorage.getItem('user');
+	function checkWelcome(user) {
 		if (!user.email && !localStorage.getItem("ODI_Welcome_Done")) {
 			showMessage('enter_email');
-			//localStorage.setItem("ODI_Welcome_Done",true);
+			localStorage.setItem("ODI_Welcome_Done",true);
 		}
 	}
 
-	function checkState() {
-		var sessionID = localStorage.getItem("UserID");
-		user = $.parseJSON(localStorage.getItem('user'));
+	function checkState(user) {
 		if (user) { 
-			var sessionEmail = user.email; 
+			var sessionEmail = user.email || false; 
 			var lastSave = user.lastSave;	
 		}
-		if (!sessionEmail && sessionID) {
+		if (!sessionEmail) {
 			emailPresent = false;
-			checkWelcome();
+			checkWelcome(user);
 			$('#save-section').html("<button class='slbutton' id='saveSession'>Save progress</button>");
 			$('#save-section').fadeIn();
 			click_bind = false;
@@ -126,10 +128,6 @@ define(function(require) {
 		}
 	}
 
-	Adapt.on('pageView:postRender', function(view) {
-		checkState();
-	});
-
 });
 
 function validateEmail(email) {
@@ -141,9 +139,8 @@ function getEmail() {
 	var Adapt = require('coreJS/adapt');
 	email = $("input[id='email']").val();
 	if (validateEmail(email)) {
-		user = $.parseJSON(localStorage.getItem('user'));
+		user = {};
 		user.email = email;
-		localStorage.setItem('user',JSON.stringify(user));
-		Adapt.trigger('emailInput:updated');
+		Adapt.trigger('userDetails:updated',user);
 	}
 }
