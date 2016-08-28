@@ -2,7 +2,8 @@
 // ==================
 
 .navigation {
-    width: 1024px;
+    min-width: @default-width;
+    *width: @default-width;
     overflow: hidden;
     background-color: @navigation-color;
     box-shadow: 0 2px 5px rgba(0,0,0,0.26);
@@ -10,6 +11,19 @@
 
     .ie8 & {
         max-width: @ie8-max-width;
+    }
+
+    @media all and (max-width:(@device-width-large - 1px)) {
+        width: 1px;
+        min-width: 100%;
+        *width: 100%;
+    }
+
+    @media all and (max-width:(@device-width-medium - 1px)) {
+        width: 1px;
+        min-width: 100%;
+        *width: 100%;
+        height:@navigation-height-mobile;
     }
 
     .icon {
