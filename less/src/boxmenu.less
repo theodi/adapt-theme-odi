@@ -11,7 +11,9 @@
 
 	.menu-header {
 		margin-bottom: -30px;
-		background-color: @background-color-inverted;
+		background: url('assets/blobs.png');
+		background-size: cover;
+		background-color: @menu-header-background-color;
     		@media all and (max-width:(@device-width-medium - 1px)) {
 			margin-bottom: 0px;
     		}
@@ -24,7 +26,7 @@
 		text-align: left;
 
         	@media all and (max-width: (@device-width-large + 20px)) {
-	            padding: (@menu-header-padding-top / 2) 20px @menu-header-padding-bottom;
+	            padding: (@menu-header-padding-top / 2) 20px (@menu-header-padding-bottom / 2);
 	        }
 
 	        @media all and (max-width: (@device-width-small + 20px)) {
