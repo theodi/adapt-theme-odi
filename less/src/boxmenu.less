@@ -12,28 +12,43 @@
 	.menu-header {
 		margin-bottom: -30px;
 		background-color: @background-color-inverted;
+    		@media all and (max-width:(@device-width-medium - 1px)) {
+			margin-bottom: 0px;
+    		}
 	}
 
 	.menu-header-inner {
 		max-width: @device-width-large;
 		margin: auto;
 		padding: @menu-header-padding-top 0 @menu-header-padding-bottom;
-		text-align: center;
+		text-align: left;
 
-        @media all and (max-width: (@device-width-large + 20px)) {
-            padding: (@menu-header-padding-top / 2) 20px @menu-header-padding-bottom;
-        }
+        	@media all and (max-width: (@device-width-large + 20px)) {
+	            padding: (@menu-header-padding-top / 2) 20px @menu-header-padding-bottom;
+	        }
 
-        @media all and (max-width: (@device-width-small + 20px)) {
-            padding: 20px 10px 20px;
-        }
+	        @media all and (max-width: (@device-width-small + 20px)) {
+	            padding: 20px 10px 20px;
+	        }
 	}
 
 	.menu-title {
 		margin: @menu-block-title-margin-top 0 @menu-block-title-margin-bottom;
 		color: @foreground-color-inverted;
 	}
-
+	.menu-title-inner {
+		padding-top: 10px;
+		background: black;
+		display: inline;
+   		line-height: 1.4em;
+	        padding-bottom: 10px;
+		padding-left: 10px;
+		padding-right: 10px;
+		-webkit-box-decoration-break: clone;
+		-ms-box-decoration-break: clone;
+		-o-box-decoration-break: clone;
+		box-decoration-break: clone;
+	}
 	.menu-body {
 		margin: @menu-block-body-margin-bottom 0;
 		color: @foreground-color-inverted;
@@ -155,8 +170,18 @@
 			padding:0;
 		}
 
-		.menu-title-inner{
-			padding: 0;
+		.menu-title-inner {
+			padding-top: 10px;
+			background: black;
+			display: inline;
+    			line-height: 1.4em;
+		        padding-bottom: 10px;
+			padding-left: 10px;
+			padding-right: 10px;
+			-webkit-box-decoration-break: clone;
+			-ms-box-decoration-break: clone;
+			-o-box-decoration-break: clone;
+			box-decoration-break: clone;
 		}
 
 		.menu-body-inner{
