@@ -29,9 +29,6 @@ h5 {
 	background-color: #222;
 }
 .block {
-	a, a:hover, a:visited {
-		color: @primary-color-inverted;
-	}
 	&.color-one {
 		.accordion-item-title {
 			background-color: @odi-color-one;
@@ -483,12 +480,15 @@ h5 {
 		}
 	}
 	&.inverted {
-		.narrative-component .narrative-progress {
-			background-color: @primary-color-inverted;
-			border: 1px solid @primary-color-inverted;
+		a, a:hover, a:visited {
+			color: @primary-color-inverted;
 		}
 		.buttons button {
 			background-color: @primary-color-inverted;
+		}
+		.narrative-component .narrative-progress {
+			background-color: @primary-color-inverted;
+			border: 1px solid @primary-color-inverted;
 		}
 		.accordion-item-title {
 			background-color: @primary-color-inverted;
