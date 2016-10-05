@@ -19,7 +19,7 @@ Add to block (classes)
 * inverted
 	Inverts black on white text to white on colors
 * color-{one,two,three,four,five,six,seven,eight,nine,ten}
-	Background colours for blocks (controlled by theme/less/colors.less)
+	Controls the main color of block content. When inverted the background color will be this color and content will be white (or inverted color). When not used alongside inverted, the content will be this color. 
 * footer inverted
 	A dark color for the footer block
 * section-banner
