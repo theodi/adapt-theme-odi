@@ -7,74 +7,725 @@
 // Class applies alternative background color and component styling
 
 body {
-    background: #f3f2f2 url('assets/cubes.png');
-    background-position: 5px 5px;
-    font-family: "Helvetica Neue",Arial,sans-serif;
-    font-weight: 300;
-    color: #6d6d6d;
-    font-size: 17px;
-    line-height: 27px;
+	background: #f3f2f2 url('assets/cubes.png');
+	background-position: 5px 5px;
+	font-family: "Helvetica Neue",Arial,sans-serif;
+	font-weight: 300;
+	color: #6d6d6d;
+	font-size: 17px;
+	line-height: 27px;
 }
 h5 {
-    font-size: 21.25px;
-    line-height: 31.25px;
-    font-weight: 600;
-    margin-bottom: 25px;
+	font-size: 21.25px;
+	line-height: 31.25px;
+	font-weight: 600;
+	margin-bottom: 25px;
 }
 .intro-logo img {
-    height: 350px;
-    margin-left: 20px;
+	height: 350px;
+	margin-left: 20px;
 }
 .footer {
-    background-color: #222;
+	background-color: #222;
 }
-.color-one {
-    background-color: @odi-color-one;
+.block {
+	a, a:hover, a:visited {
+		color: @primary-color-inverted;
+	}
+	&.color-one {
+		.accordion-item-title {
+			background-color: @odi-color-one;
+			.no-touch & {
+				&:hover {
+					background-color: darken(@odi-color-one, 20%);
+				}
+				&.visited:hover {
+					background-color: darken(@odi-color-one, 20%);
+				}
+			}
+		}
+		.accordion-item-title:hover {
+			background-color: darken(@odi-color-one, 20%);
+		}
+		.accordion-item-body {
+			border: 3px solid @odi-color-one;
+		}
+		.narrative-component .narrative-progress.selected {
+			background-color: @odi-color-one;
+		}
+		.mcq-component .mcq-item label {
+			background-color: @odi-color-one;
+			.no-touch & {
+				&:hover {
+					background-color: darken(@odi-color-one, 20%);
+				}
+				&.visited:hover {
+					background-color: darken(@odi-color-one, 20%);
+				}
+			}
+		}
+		.mcq-component .incorrect label {
+			background-color: darken(@odi-color-one, 20%);
+		}
+		.mcq-widget.disabled .mcq-item label.selected.disabled {
+			background-color: @odi-color-one;
+		}
+		.mcq-widget.disabled .mcq-item label.disabled .mcq-item-icon.mcq-incorrect-icon {
+			color: black;
+		}
+		.buttons button {
+			background-color: @odi-color-one;
+		}
+	}
+	&.color-two {
+		.accordion-item-title {
+			background-color: @odi-color-two;
+			.no-touch & {
+				&:hover {
+					background-color: darken(@odi-color-two, 20%);
+				}
+				&.visited:hover {
+					background-color: darken(@odi-color-two, 20%);
+				}
+			}
+		}
+		.accordion-item-title:hover {
+			background-color: darken(@odi-color-two, 20%);
+		}
+		.accordion-item-body {
+			border: 3px solid @odi-color-two;
+		}
+		.narrative-component .narrative-progress.selected {
+			background-color: @odi-color-two;
+		}
+		.mcq-component .mcq-item label {
+			background-color: @odi-color-two;
+			.no-touch & {
+				&:hover {
+					background-color: darken(@odi-color-two, 20%);
+				}
+				&.visited:hover {
+					background-color: darken(@odi-color-two, 20%);
+				}
+			}
+		}
+		.mcq-component .incorrect label {
+			background-color: darken(@odi-color-two, 20%);
+		}
+		.mcq-widget.disabled .mcq-item label.selected.disabled {
+			background-color: @odi-color-two;
+		}
+		.mcq-widget.disabled .mcq-item label.disabled .mcq-item-icon.mcq-incorrect-icon {
+			color: black;
+		}
+		.buttons button {
+			background-color: @odi-color-two;
+		}
+	}
+	&.color-three {
+		.accordion-item-title {
+			background-color: @odi-color-three;
+			.no-touch & {
+				&:hover {
+					background-color: darken(@odi-color-three, 20%);
+				}
+				&.visited:hover {
+					background-color: darken(@odi-color-three, 20%);
+				}
+			}
+		}
+		.accordion-item-title:hover {
+			background-color: darken(@odi-color-three, 20%);
+		}
+		.accordion-item-body {
+			border: 3px solid @odi-color-three;
+		}
+		.narrative-component .narrative-progress.selected {
+			background-color: @odi-color-three;
+		}
+		.mcq-component .mcq-item label {
+			background-color: @odi-color-three;
+			.no-touch & {
+				&:hover {
+					background-color: darken(@odi-color-three, 20%);
+				}
+				&.visited:hover {
+					background-color: darken(@odi-color-three, 20%);
+				}
+			}
+		}
+		.mcq-component .incorrect label {
+			background-color: darken(@odi-color-three, 20%);
+		}
+		.mcq-widget.disabled .mcq-item label.selected.disabled {
+			background-color: @odi-color-three;
+		}
+		.mcq-widget.disabled .mcq-item label.disabled .mcq-item-icon.mcq-incorrect-icon {
+			color: black;
+		}
+		.buttons button {
+			background-color: @odi-color-three;
+		}
+	}
+	&.color-four {
+		.accordion-item-title {
+			background-color: @odi-color-four;
+			.no-touch & {
+				&:hover {
+					background-color: darken(@odi-color-four, 20%);
+				}
+				&.visited:hover {
+					background-color: darken(@odi-color-four, 20%);
+				}
+			}
+		}
+		.accordion-item-title:hover {
+			background-color: darken(@odi-color-four, 20%);
+		}
+		.accordion-item-body {
+			border: 3px solid @odi-color-four;
+		}
+		.narrative-component .narrative-progress.selected {
+			background-color: @odi-color-four;
+		}
+		.mcq-component .mcq-item label {
+			background-color: @odi-color-four;
+			.no-touch & {
+				&:hover {
+					background-color: darken(@odi-color-four, 20%);
+				}
+				&.visited:hover {
+					background-color: darken(@odi-color-four, 20%);
+				}
+			}
+		}
+		.mcq-component .incorrect label {
+			background-color: darken(@odi-color-four, 20%);
+		}
+		.mcq-widget.disabled .mcq-item label.selected.disabled {
+			background-color: @odi-color-four;
+		}
+		.mcq-widget.disabled .mcq-item label.disabled .mcq-item-icon.mcq-incorrect-icon {
+			color: black;
+		}
+		.buttons button {
+			background-color: @odi-color-four;
+		}
+	}
+	&.color-five {
+		.accordion-item-title {
+			background-color: @odi-color-five;
+			.no-touch & {
+				&:hover {
+					background-color: darken(@odi-color-five, 20%);
+				}
+				&.visited:hover {
+					background-color: darken(@odi-color-five, 20%);
+				}
+			}
+		}
+		.accordion-item-title:hover {
+			background-color: darken(@odi-color-five, 20%);
+		}
+		.accordion-item-body {
+			border: 3px solid @odi-color-five;
+		}
+		.narrative-component .narrative-progress.selected {
+			background-color: @odi-color-five;
+		}
+		.mcq-component .mcq-item label {
+			background-color: @odi-color-five;
+			.no-touch & {
+				&:hover {
+					background-color: darken(@odi-color-five, 20%);
+				}
+				&.visited:hover {
+					background-color: darken(@odi-color-five, 20%);
+				}
+			}
+		}
+		.mcq-component .incorrect label {
+			background-color: darken(@odi-color-five, 20%);
+		}
+		.mcq-widget.disabled .mcq-item label.selected.disabled {
+			background-color: @odi-color-five;
+		}
+		.mcq-widget.disabled .mcq-item label.disabled .mcq-item-icon.mcq-incorrect-icon {
+			color: black;
+		}
+		.buttons button {
+			background-color: @odi-color-five;
+		}
+	}
+	&.color-six {
+		.accordion-item-title {
+			background-color: @odi-color-six;
+			.no-touch & {
+				&:hover {
+					background-color: darken(@odi-color-six, 20%);
+				}
+				&.visited:hover {
+					background-color: darken(@odi-color-six, 20%);
+				}
+			}
+		}
+		.accordion-item-title:hover {
+			background-color: darken(@odi-color-six, 20%);
+		}
+		.accordion-item-body {
+			border: 3px solid @odi-color-six;
+		}
+		.narrative-component .narrative-progress.selected {
+			background-color: @odi-color-six;
+		}
+		.mcq-component .mcq-item label {
+			background-color: @odi-color-six;
+			.no-touch & {
+				&:hover {
+					background-color: darken(@odi-color-six, 20%);
+				}
+				&.visited:hover {
+					background-color: darken(@odi-color-six, 20%);
+				}
+			}
+		}
+		.mcq-component .incorrect label {
+			background-color: darken(@odi-color-six, 20%);
+		}
+		.mcq-widget.disabled .mcq-item label.selected.disabled {
+			background-color: @odi-color-six;
+		}
+		.mcq-widget.disabled .mcq-item label.disabled .mcq-item-icon.mcq-incorrect-icon {
+			color: black;
+		}
+		.buttons button {
+			background-color: @odi-color-six;
+		}
+	}
+	&.color-seven {
+		.accordion-item-title {
+			background-color: @odi-color-seven;
+			.no-touch & {
+				&:hover {
+					background-color: darken(@odi-color-seven, 20%);
+				}
+				&.visited:hover {
+					background-color: darken(@odi-color-seven, 20%);
+				}
+			}
+		}
+		.accordion-item-title:hover {
+			background-color: darken(@odi-color-seven, 20%);
+		}
+		.accordion-item-body {
+			border: 3px solid @odi-color-seven;
+		}
+		.narrative-component .narrative-progress.selected {
+			background-color: @odi-color-seven;
+		}
+		.mcq-component .mcq-item label {
+			background-color: @odi-color-seven;
+			.no-touch & {
+				&:hover {
+					background-color: darken(@odi-color-seven, 20%);
+				}
+				&.visited:hover {
+					background-color: darken(@odi-color-seven, 20%);
+				}
+			}
+		}
+		.mcq-component .incorrect label {
+			background-color: darken(@odi-color-seven, 20%);
+		}
+		.mcq-widget.disabled .mcq-item label.selected.disabled {
+			background-color: @odi-color-seven;
+		}
+		.mcq-widget.disabled .mcq-item label.disabled .mcq-item-icon.mcq-incorrect-icon {
+			color: black;
+		}
+		.buttons button {
+			background-color: @odi-color-seven;
+		}
+	}
+	&.color-eight {
+		.accordion-item-title {
+			background-color: @odi-color-eight;
+			.no-touch & {
+				&:hover {
+					background-color: darken(@odi-color-eight, 20%);
+				}
+				&.visited:hover {
+					background-color: darken(@odi-color-eight, 20%);
+				}
+			}
+		}
+		.accordion-item-title:hover {
+			background-color: darken(@odi-color-eight, 20%);
+		}
+		.accordion-item-body {
+			border: 3px solid @odi-color-eight;
+		}
+		.narrative-component .narrative-progress.selected {
+			background-color: @odi-color-eight;
+		}
+		.mcq-component .mcq-item label {
+			background-color: @odi-color-eight;
+			.no-touch & {
+				&:hover {
+					background-color: darken(@odi-color-eight, 20%);
+				}
+				&.visited:hover {
+					background-color: darken(@odi-color-eight, 20%);
+				}
+			}
+		}
+		.mcq-component .incorrect label {
+			background-color: darken(@odi-color-eight, 20%);
+		}
+		.mcq-widget.disabled .mcq-item label.selected.disabled {
+			background-color: @odi-color-eight;
+		}
+		.mcq-widget.disabled .mcq-item label.disabled .mcq-item-icon.mcq-incorrect-icon {
+			color: black;
+		}
+		.buttons button {
+			background-color: @odi-color-eight;
+		}
+	}
+	&.color-nine {
+		.accordion-item-title {
+			background-color: @odi-color-nine;
+			.no-touch & {
+				&:hover {
+					background-color: darken(@odi-color-nine, 20%);
+				}
+				&.visited:hover {
+					background-color: darken(@odi-color-nine, 20%);
+				}
+			}
+		}
+		.accordion-item-title:hover {
+			background-color: darken(@odi-color-nine, 20%);
+		}
+		.accordion-item-body {
+			border: 3px solid @odi-color-nine;
+		}
+		.narrative-component .narrative-progress.selected {
+			background-color: @odi-color-nine;
+		}
+		.mcq-component .mcq-item label {
+			background-color: @odi-color-nine;
+			.no-touch & {
+				&:hover {
+					background-color: darken(@odi-color-nine, 20%);
+				}
+				&.visited:hover {
+					background-color: darken(@odi-color-nine, 20%);
+				}
+			}
+		}
+		.mcq-component .incorrect label {
+			background-color: darken(@odi-color-nine, 20%);
+		}
+		.mcq-widget.disabled .mcq-item label.selected.disabled {
+			background-color: @odi-color-nine;
+		}
+		.mcq-widget.disabled .mcq-item label.disabled .mcq-item-icon.mcq-incorrect-icon {
+			color: black;
+		}
+		.buttons button {
+			background-color: @odi-color-nine;
+		}
+	}
+	&.color-ten {
+		.accordion-item-title {
+			background-color: @odi-color-ten;
+			.no-touch & {
+				&:hover {
+					background-color: darken(@odi-color-ten, 20%);
+				}
+				&.visited:hover {
+					background-color: darken(@odi-color-ten, 20%);
+				}
+			}
+		}
+		.accordion-item-title:hover {
+			background-color: darken(@odi-color-ten, 20%);
+		}
+		.accordion-item-body {
+			border: 3px solid @odi-color-ten;
+		}
+		.narrative-component .narrative-progress.selected {
+			background-color: @odi-color-ten;
+		}
+		.mcq-component .mcq-item label {
+			background-color: @odi-color-ten;
+			.no-touch & {
+				&:hover {
+					background-color: darken(@odi-color-ten, 20%);
+				}
+				&.visited:hover {
+					background-color: darken(@odi-color-ten, 20%);
+				}
+			}
+		}
+		.mcq-component .incorrect label {
+			background-color: darken(@odi-color-ten, 20%);
+		}
+		.mcq-widget.disabled .mcq-item label.selected.disabled {
+			background-color: @odi-color-ten;
+		}
+		.mcq-widget.disabled .mcq-item label.disabled .mcq-item-icon.mcq-incorrect-icon {
+			color: black;
+		}
+		.buttons button {
+			background-color: @odi-color-ten;
+		}
+	}
+	&.inverted {
+		.narrative-component .narrative-progress {
+			background-color: @primary-color-inverted;
+			border: 1px solid @primary-color-inverted;
+		}
+		.buttons button {
+			background-color: @primary-color-inverted;
+		}
+		.accordion-item-title {
+			background-color: @primary-color-inverted;
+			.no-touch & {
+				&:hover {
+					background-color: darken(@primary-color-inverted, 20%);
+				}
+				&.visited:hover {
+					background-color: darken(@primary-color-inverted, 20%);
+				}
+			}
+		}
+		.accordion-item-title:hover {
+			background-color: darken(@primary-color-inverted, 20%);
+		}
+		.accordion-item-body {
+			border: 3px solid @primary-color-inverted;
+			color: @primary-color-inverted;
+		}
+		.mcq-component .mcq-item, .mcq-component .mcq-item label {
+			background-color: @primary-color-inverted;
+			.no-touch & {
+				&:hover {
+					background-color: darken(@primary-color-inverted, 20%);
+				}
+				&.visited:hover {
+					background-color: darken(@primary-color-inverted, 20%);
+				}
+			}
+		}
+		.mcq-component .mcq-item:hover {
+			background-color: darken(@primary-color-inverted, 20%);
+		}
+		.mcq-component .incorrect label {
+			background-color: darken(@primary-color-inverted, 20%);
+		}
+		.mcq-widget.disabled .mcq-item label.selected.disabled {
+			background-color: @primary-color-inverted;
+		}
+		&.color-one {
+			background-color: @odi-color-one;
+			.narrative-component .narrative-progress.selected {
+				background-color: @odi-color-one;
+			}
+			.accordion-item-title-icon, .accordion-item-title {
+				color: @odi-color-one;
+			}
+			.accordion-item-body {
+				background-color: @odi-color-one;
+			}
+			.mcq-component .mcq-item label, .mcq-component .mcq-item label.selected .mcq-item-icon, .mcq-component .mcq-item label .mcq-answer-icon {
+				color: @odi-color-one;
+			}
+			.buttons button {
+				color: @odi-color-one;
+			}
+		}
+		&.color-two {
+			background-color: @odi-color-two;
+			.narrative-component .narrative-progress.selected {
+				background-color: @odi-color-two;
+			}
+			.accordion-item-title-icon, .accordion-item-title {
+				color: @odi-color-two;
+			}
+			.accordion-item-body {
+				background-color: @odi-color-two;
+			}
+			.mcq-component .mcq-item label, .mcq-component .mcq-item label.selected .mcq-item-icon, .mcq-component .mcq-item label .mcq-answer-icon {
+				color: @odi-color-two;
+			}
+			.buttons button {
+				color: @odi-color-two;
+			}
+		}
+		&.color-three {
+			background-color: @odi-color-three;
+			.narrative-component .narrative-progress.selected {
+				background-color: @odi-color-three;
+			}
+			.accordion-item-title-icon, .accordion-item-title {
+				color: @odi-color-three;
+			}
+			.accordion-item-body {
+				background-color: @odi-color-three;
+			}
+			.mcq-component .mcq-item label, .mcq-component .mcq-item label.selected .mcq-item-icon, .mcq-component .mcq-item label .mcq-answer-icon {
+				color: @odi-color-three;
+			}
+			.buttons button {
+				color: @odi-color-three;
+			}
+		}
+		&.color-four {
+			background-color: @odi-color-four;
+			.narrative-component .narrative-progress.selected {
+				background-color: @odi-color-four;
+			}
+			.accordion-item-title-icon, .accordion-item-title {
+				color: @odi-color-four;
+			}
+			.accordion-item-body {
+				background-color: @odi-color-four;
+			}
+			.mcq-component .mcq-item label, .mcq-component .mcq-item label.selected .mcq-item-icon, .mcq-component .mcq-item label .mcq-answer-icon {
+				color: @odi-color-four;
+			}
+			.buttons button {
+				color: @odi-color-four;
+			}
+		}
+		&.color-five {
+			background-color: @odi-color-five;
+			.narrative-component .narrative-progress.selected {
+				background-color: @odi-color-five;
+			}
+			.accordion-item-title-icon, .accordion-item-title {
+				color: @odi-color-five;
+			}
+			.accordion-item-body {
+				background-color: @odi-color-five;
+			}
+			.mcq-component .mcq-item label, .mcq-component .mcq-item label.selected .mcq-item-icon, .mcq-component .mcq-item label .mcq-answer-icon {
+				color: @odi-color-five;
+			}
+			.buttons button {
+				color: @odi-color-five;
+			}
+		}
+		&.color-six {
+			background-color: @odi-color-six;
+			.narrative-component .narrative-progress.selected {
+				background-color: @odi-color-six;
+			}
+			.accordion-item-title-icon, .accordion-item-title {
+				color: @odi-color-six;
+			}
+			.accordion-item-body {
+				background-color: @odi-color-six;
+			}
+			.mcq-component .mcq-item label, .mcq-component .mcq-item label.selected .mcq-item-icon, .mcq-component .mcq-item label .mcq-answer-icon {
+				color: @odi-color-six;
+			}
+			.buttons button {
+				color: @odi-color-six;
+			}
+		}
+		&.color-seven {
+			background-color: @odi-color-seven;
+			.narrative-component .narrative-progress.selected {
+				background-color: @odi-color-seven;
+			}
+			.accordion-item-title-icon, .accordion-item-title {
+				color: @odi-color-seven;
+			}
+			.accordion-item-body {
+				background-color: @odi-color-seven;
+			}
+			.mcq-component .mcq-item label, .mcq-component .mcq-item label.selected .mcq-item-icon, .mcq-component .mcq-item label .mcq-answer-icon {
+				color: @odi-color-seven;
+			}
+			.buttons button {
+				color: @odi-color-seven;
+			}
+		}
+		&.color-eight {
+			background-color: @odi-color-eight;
+			.narrative-component .narrative-progress.selected {
+				background-color: @odi-color-eight;
+			}
+			.accordion-item-title-icon, .accordion-item-title {
+				color: @odi-color-eight;
+			}
+			.accordion-item-body {
+				background-color: @odi-color-eight;
+			}
+			.mcq-component .mcq-item label, .mcq-component .mcq-item label.selected .mcq-item-icon, .mcq-component .mcq-item label .mcq-answer-icon {
+				color: @odi-color-eight;
+			}
+			.buttons button {
+				color: @odi-color-eight;
+			}
+		}
+		&.color-nine {
+			background-color: @odi-color-nine;
+			.narrative-component .narrative-progress.selected {
+				background-color: @odi-color-nine;
+			}
+			.accordion-item-title-icon, .accordion-item-title {
+				color: @odi-color-nine;
+			}
+			.accordion-item-body {
+				background-color: @odi-color-nine;
+			}
+			.mcq-component .mcq-item label, .mcq-component .mcq-item label.selected .mcq-item-icon, .mcq-component .mcq-item label .mcq-answer-icon {
+				color: @odi-color-nine;
+			}
+			.buttons button {
+				color: @odi-color-nine;
+			}
+		}
+		&.color-ten {
+			background-color: @odi-color-ten;
+			.narrative-component .narrative-progress.selected {
+				background-color: @odi-color-ten;
+			}
+			.accordion-item-title-icon, .accordion-item-title {
+				color: @odi-color-ten;
+			}
+			.accordion-item-body {
+				background-color: @odi-color-ten;
+			}
+			.mcq-component .mcq-item label, .mcq-component .mcq-item label.selected .mcq-item-icon, .mcq-component .mcq-item label .mcq-answer-icon {
+				color: @odi-color-ten;
+			}
+			.buttons button {
+				color: @odi-color-ten;
+			}
+		}
+	}
 }
-.color-two {
-    background-color: @odi-color-two;
-}
-.color-three {
-    background-color: @odi-color-three;
-}
-.color-four {
-    background-color: @odi-color-four;
-}
-.color-five {
-    background-color: @odi-color-five;
-}
-.color-six {
-    background-color: @odi-color-six;
-}
-.color-seven {
-    background-color: @odi-color-seven;
-}
-.color-eight {
-    background-color: @odi-color-eight;
-}
-.color-nine {
-    background-color: @odi-color-nine;
-}
-.color-ten {
-    background-color: @odi-color-ten;
-}
-
 .divider-block {
-    background-color: @background-color-inverted;
-    color: @foreground-color-inverted;
-    text-align: center;
-    .block-title,
-    .block-body,
-    .block-instruction,
-    .component-title,
-    .component-body,
-    .component-instruction {
-    	color: @foreground-color-inverted;
-    	text-align: center;
-    }
-    .component-inner {
-    	background-color: transparent;
-    }
+	background-color: @background-color-inverted;
+	color: @foreground-color-inverted;
+	text-align: center;
+	.block-title,
+	.block-body,
+	.block-instruction,
+	.component-title,
+	.component-body,
+	.component-instruction {
+		color: @foreground-color-inverted;
+		text-align: center;
+	}
+	.component-inner {
+		background-color: transparent;
+	}
 }
 
 // Block background color - used to apply variable based background colors on blocks
