@@ -144,3 +144,16 @@ function getEmail() {
 		Adapt.trigger('userDetails:updated',user);
 	}
 }
+function callTrigger(type) {
+	var Adapt = require('coreJS/adapt');
+	console.log(type);
+	if (type == "skillsFramework:showSkills") {
+		Adapt.trigger('skillsFramework:showSkills');
+	}
+	if (type == "aboutPage:showAboutPage") {
+		Adapt.trigger('aboutPage:showAboutPage');
+	}
+	if (type == "credits:showCredits") {
+		Adapt.trigger('credits:showCredits');
+	}
+}
