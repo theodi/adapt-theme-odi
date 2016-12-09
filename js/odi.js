@@ -1,3 +1,4 @@
+var theme="ODI";
 define(function(require) {
 	
 	var Adapt = require('coreJS/adapt');
