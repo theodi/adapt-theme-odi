@@ -13,6 +13,16 @@
         max-width: @ie8-max-width;
     }
 
+    .icon {
+        padding: @navigation-padding;
+        color: @navigation-icon-color;
+        .transition-color;
+
+        .no-touch &:hover {
+            color: @navigation-icon-color-hover;
+        }
+    }
+
     @media all and (max-width:(@device-width-large - 1px)) {
         width: 1px;
         min-width: 100%;
@@ -24,17 +34,11 @@
         min-width: 100%;
         *width: 100%;
         height:@navigation-height-mobile;
-    }
-
-    .icon {
-        padding: @navigation-padding;
-        color: @navigation-icon-color;
-        .transition-color;
-
-        .no-touch &:hover {
-            color: @navigation-icon-color-hover;
+        .icon {
+            padding: 14px;
         }
     }
+
 }
 
 
