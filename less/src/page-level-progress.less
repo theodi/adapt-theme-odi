@@ -4,6 +4,9 @@
 .page-level-progress-navigation {
     padding:  @navigation-padding!important; // Override defaults in extension
     margin: 5px 0;
+    @media all and (max-width:(@device-width-medium - 1px)) {
+        margin: 0px 0;
+    }
     
     .no-touch &:hover {
 

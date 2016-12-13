@@ -21,10 +21,6 @@ h5 {
 	font-weight: 600;
 	margin-bottom: 25px;
 }
-.intro-logo img {
-	height: 350px;
-	margin-left: 20px;
-}
 .footer {
 	background-color: #222;
 }
@@ -40,19 +36,154 @@ h5 {
 		cursor: pointer;
 	}
 }
-.intro-logo {
-    background: url(assets/intro_logo.png) no-repeat center;
-    background-size: contain;
-    margin-top: 10px;
-    height: 340px;
-    right: 0px;
-    position: absolute;
-}
 .footer-logo {
 	text-align: left;
 }
 .block {
+	.text-component {
+		&.ticks ul li {
+    	    list-style-type: none;
+	        margin-left: 28px;
+        	white-space: pre-wrap;
+        	&:before {
+            	content: "✔";
+            	margin: 0 14px 0 -28px;
+    		}
+		}
+	}
+	.narrative-component {
+		.narrative-slider-graphic img {
+			background-color: white;
+		}
+		&.white {
+			.narrative-slider-graphic img {
+				background-color: white;
+			}
+		}
+		&.color-one {
+			.narrative-slider-graphic img {
+				background-color: @odi-color-one;
+			}
+		}
+		&.color-two {
+			.narrative-slider-graphic img {
+				background-color: @odi-color-two;
+			}
+		}
+		&.color-three {
+			.narrative-slider-graphic img {
+				background-color: @odi-color-three;
+			}
+		}
+		&.color-four {
+			.narrative-slider-graphic img {
+				background-color: @odi-color-four;
+			}
+		}
+		&.color-five {
+			.narrative-slider-graphic img {
+				background-color: @odi-color-five;
+			}
+		}
+		&.color-six {
+			.narrative-slider-graphic img {
+				background-color: @odi-color-six;
+			}
+		}
+		&.color-seven {
+			.narrative-slider-graphic img {
+				background-color: @odi-color-seven;
+			}
+		}
+		&.color-eight {
+			.narrative-slider-graphic img {
+				background-color: @odi-color-eight;
+			}
+		}
+		&.color-nine {
+			.narrative-slider-graphic img {
+				background-color: @odi-color-nine;
+			}
+		}
+		&.color-ten {
+			.narrative-slider-graphic img {
+				background-color: @odi-color-ten;
+			}
+		}
+	}
+	.graphic-component {
+		&.intro-logo {
+			.graphic-widget {
+				text-align: center;
+			}
+			.graphic-inner img {
+				max-height: 350px;
+			}
+		}
+		&.white {
+			.graphic-inner img {
+				background-color: white;
+			}
+		}
+		&.color-one {
+			.graphic-inner img {
+				background-color: @odi-color-one;
+			}
+		}
+		&.color-two {
+			.graphic-inner img {
+				background-color: @odi-color-two;
+			}
+		}
+		&.color-three {
+			.graphic-inner img {
+				background-color: @odi-color-three;
+			}
+		}
+		&.color-four {
+			.graphic-inner img {
+				background-color: @odi-color-four;
+			}
+		}
+		&.color-five {
+			.graphic-inner img {
+				background-color: @odi-color-five;
+			}
+		}
+		&.color-six {
+			.graphic-inner img {
+				background-color: @odi-color-six;
+			}
+		}
+		&.color-seven {
+			.graphic-inner img {
+				background-color: @odi-color-seven;
+			}
+		}
+		&.color-eight {
+			.graphic-inner img {
+				background-color: @odi-color-eight;
+			}
+		}
+		&.color-nine {
+			.graphic-inner img {
+				background-color: @odi-color-nine;
+			}
+		}
+		&.color-ten {
+			.graphic-inner img {
+				background-color: @odi-color-ten;
+			}
+		}
+	}
 	&.color-one {
+		.graphic-component {
+			&.matchblock {
+				.graphic-inner img {
+					background-color: @odi-color-one;
+				}
+			}
+		}
 		.accordion-item-title {
 			background-color: @odi-color-one;
 			.no-touch & {
@@ -70,8 +201,15 @@ h5 {
 		.accordion-item-body {
 			border: 3px solid @odi-color-one;
 		}
-		.narrative-component .narrative-progress.selected {
+		.narrative-component .narrative-progress.selected, .narrative-component .narrative-strapline-title {
 			background-color: @odi-color-one;
+		}
+		.narrative-component {
+			&.matchblock {
+				.narrative-slider-graphic img {
+					background-color: @odi-color-one;
+				}
+			}
 		}
 		.mcq-component .mcq-item label {
 			background-color: @odi-color-one;
@@ -98,6 +236,13 @@ h5 {
 		}
 	}
 	&.color-two {
+		.graphic-component {
+			&.matchblock {
+				.graphic-inner img {
+					background-color: @odi-color-two;
+				}
+			}
+		}
 		.accordion-item-title {
 			background-color: @odi-color-two;
 			.no-touch & {
@@ -115,8 +260,15 @@ h5 {
 		.accordion-item-body {
 			border: 3px solid @odi-color-two;
 		}
-		.narrative-component .narrative-progress.selected {
+		.narrative-component .narrative-progress.selected, .narrative-component .narrative-strapline-title {
 			background-color: @odi-color-two;
+		}
+		.narrative-component {
+			&.matchblock {
+				.narrative-slider-graphic img {
+					background-color: @odi-color-two;
+				}
+			}
 		}
 		.mcq-component .mcq-item label {
 			background-color: @odi-color-two;
@@ -143,6 +295,13 @@ h5 {
 		}
 	}
 	&.color-three {
+		.graphic-component {
+			&.matchblock {
+				.graphic-inner img {
+					background-color: @odi-color-three;
+				}
+			}
+		}
 		.accordion-item-title {
 			background-color: @odi-color-three;
 			.no-touch & {
@@ -160,8 +319,15 @@ h5 {
 		.accordion-item-body {
 			border: 3px solid @odi-color-three;
 		}
-		.narrative-component .narrative-progress.selected {
+		.narrative-component .narrative-progress.selected, .narrative-component .narrative-strapline-title {
 			background-color: @odi-color-three;
+		}
+		.narrative-component {
+			&.matchblock {
+				.narrative-slider-graphic img {
+					background-color: @odi-color-three;
+				}
+			}
 		}
 		.mcq-component .mcq-item label {
 			background-color: @odi-color-three;
@@ -188,6 +354,13 @@ h5 {
 		}
 	}
 	&.color-four {
+		.graphic-component {
+			&.matchblock {
+				.graphic-inner img {
+					background-color: @odi-color-four;
+				}
+			}
+		}
 		.accordion-item-title {
 			background-color: @odi-color-four;
 			.no-touch & {
@@ -205,8 +378,15 @@ h5 {
 		.accordion-item-body {
 			border: 3px solid @odi-color-four;
 		}
-		.narrative-component .narrative-progress.selected {
+		.narrative-component .narrative-progress.selected, .narrative-component .narrative-strapline-title {
 			background-color: @odi-color-four;
+		}
+		.narrative-component {
+			&.matchblock {
+				.narrative-slider-graphic img {
+					background-color: @odi-color-four;
+				}
+			}
 		}
 		.mcq-component .mcq-item label {
 			background-color: @odi-color-four;
@@ -233,6 +413,13 @@ h5 {
 		}
 	}
 	&.color-five {
+		.graphic-component {
+			&.matchblock {
+				.graphic-inner img {
+					background-color: @odi-color-five;
+				}
+			}
+		}
 		.accordion-item-title {
 			background-color: @odi-color-five;
 			.no-touch & {
@@ -250,8 +437,15 @@ h5 {
 		.accordion-item-body {
 			border: 3px solid @odi-color-five;
 		}
-		.narrative-component .narrative-progress.selected {
+		.narrative-component .narrative-progress.selected, .narrative-component .narrative-strapline-title {
 			background-color: @odi-color-five;
+		}
+		.narrative-component {
+			&.matchblock {
+				.narrative-slider-graphic img {
+					background-color: @odi-color-five;
+				}
+			}
 		}
 		.mcq-component .mcq-item label {
 			background-color: @odi-color-five;
@@ -278,6 +472,13 @@ h5 {
 		}
 	}
 	&.color-six {
+		.graphic-component {
+			&.matchblock {
+				.graphic-inner img {
+					background-color: @odi-color-six;
+				}
+			}
+		}
 		.accordion-item-title {
 			background-color: @odi-color-six;
 			.no-touch & {
@@ -295,8 +496,15 @@ h5 {
 		.accordion-item-body {
 			border: 3px solid @odi-color-six;
 		}
-		.narrative-component .narrative-progress.selected {
+		.narrative-component .narrative-progress.selected, .narrative-component .narrative-strapline-title {
 			background-color: @odi-color-six;
+		}
+		.narrative-component {
+			&.matchblock {
+				.narrative-slider-graphic img {
+					background-color: @odi-color-six;
+				}
+			}
 		}
 		.mcq-component .mcq-item label {
 			background-color: @odi-color-six;
@@ -323,6 +531,13 @@ h5 {
 		}
 	}
 	&.color-seven {
+		.graphic-component {
+			&.matchblock {
+				.graphic-inner img {
+					background-color: @odi-color-seven;
+				}
+			}
+		}
 		.accordion-item-title {
 			background-color: @odi-color-seven;
 			.no-touch & {
@@ -340,8 +555,15 @@ h5 {
 		.accordion-item-body {
 			border: 3px solid @odi-color-seven;
 		}
-		.narrative-component .narrative-progress.selected {
+		.narrative-component .narrative-progress.selected, .narrative-component .narrative-strapline-title {
 			background-color: @odi-color-seven;
+		}
+		.narrative-component {
+			&.matchblock {
+				.narrative-slider-graphic img {
+					background-color: @odi-color-seven;
+				}
+			}
 		}
 		.mcq-component .mcq-item label {
 			background-color: @odi-color-seven;
@@ -368,6 +590,13 @@ h5 {
 		}
 	}
 	&.color-eight {
+		.graphic-component {
+			&.matchblock {
+				.graphic-inner img {
+					background-color: @odi-color-eight;
+				}
+			}
+		}
 		.accordion-item-title {
 			background-color: @odi-color-eight;
 			.no-touch & {
@@ -385,8 +614,15 @@ h5 {
 		.accordion-item-body {
 			border: 3px solid @odi-color-eight;
 		}
-		.narrative-component .narrative-progress.selected {
+		.narrative-component .narrative-progress.selected, .narrative-component .narrative-strapline-title {
 			background-color: @odi-color-eight;
+		}
+		.narrative-component {
+			&.matchblock {
+				.narrative-slider-graphic img {
+					background-color: @odi-color-eight;
+				}
+			}
 		}
 		.mcq-component .mcq-item label {
 			background-color: @odi-color-eight;
@@ -413,6 +649,13 @@ h5 {
 		}
 	}
 	&.color-nine {
+		.graphic-component {
+			&.matchblock {
+				.graphic-inner img {
+					background-color: @odi-color-nine;
+				}
+			}
+		}
 		.accordion-item-title {
 			background-color: @odi-color-nine;
 			.no-touch & {
@@ -430,8 +673,15 @@ h5 {
 		.accordion-item-body {
 			border: 3px solid @odi-color-nine;
 		}
-		.narrative-component .narrative-progress.selected {
+		.narrative-component .narrative-progress.selected, .narrative-component .narrative-strapline-title {
 			background-color: @odi-color-nine;
+		}
+		.narrative-component {
+			&.matchblock {
+				.narrative-slider-graphic img {
+					background-color: @odi-color-nine;
+				}
+			}
 		}
 		.mcq-component .mcq-item label {
 			background-color: @odi-color-nine;
@@ -458,6 +708,13 @@ h5 {
 		}
 	}
 	&.color-ten {
+		.graphic-component {
+			&.matchblock {
+				.graphic-inner img {
+					background-color: @odi-color-ten;
+				}
+			}
+		}
 		.accordion-item-title {
 			background-color: @odi-color-ten;
 			.no-touch & {
@@ -475,8 +732,15 @@ h5 {
 		.accordion-item-body {
 			border: 3px solid @odi-color-ten;
 		}
-		.narrative-component .narrative-progress.selected {
+		.narrative-component .narrative-progress.selected, .narrative-component .narrative-strapline-title {
 			background-color: @odi-color-ten;
+		}
+		.narrative-component {
+			&.matchblock {
+				.narrative-slider-graphic img {
+					background-color: @odi-color-ten;
+				}
+			}
 		}
 		.mcq-component .mcq-item label {
 			background-color: @odi-color-ten;
