@@ -15,6 +15,17 @@ body {
 	font-size: 17px;
 	line-height: 27px;
 }
+.graphic-attribution {
+    position: relative;
+    background-color: rgba(100,100,100,0.85);
+    display: inline-block;
+    bottom: 2.5em;
+    padding: 3px;
+    color: white;
+}
+.graphic-attribution a {
+    color: white;
+}
 .icon-home {
 	padding-right: 0;
 	float: left;
@@ -27,6 +38,9 @@ h5 {
 }
 .footer {
 	background-color: #222;
+	.graphic-attribution {
+		display: none;
+	}
 }
 .socialbuttons-component {
 	position: relative;
@@ -126,6 +140,9 @@ h5 {
 			.graphic-inner img {
 				content: url("assets/intro_logo.png");
 				max-height: 350px;
+			}
+			.graphic-attribution {
+				display: none;
 			}
 		}
 		&.white {
