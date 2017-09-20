@@ -71,6 +71,9 @@ h5 {
 	p {
 		margin: 0px;
 	}
+	@media all and (max-width: @device-width-medium) {
+		text-align: center;
+	}
 }
 .about-credit {
 	text-align: center;
@@ -78,6 +81,13 @@ h5 {
 }
 .footer-logo {
 	text-align: left;
+	@media all and (max-width: @device-width-medium) {
+		text-align: center;
+		padding-bottom: 20px;
+	}
+	@media all and (max-width: @device-width-small) {
+		padding-bottom: 0px;
+	}
 }
 .footer-logo img {
 	max-height: 70px;
