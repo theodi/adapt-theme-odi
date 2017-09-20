@@ -15,6 +15,23 @@ body {
 	font-size: 17px;
 	line-height: 27px;
 }
+.icon-home {
+	padding-right: 0;
+	float: left;
+}
+.about-credit p {
+	display: inline;
+}
+.menu {
+	.menu-item {
+		@media all and (max-width: @device-width-medium) {
+			width: 50%;
+		}
+		@media all and (max-width: @device-width-small) {
+			width: 100%;
+		}
+	}
+}
 .graphic-attribution {
     position: relative;
     background-color: rgba(100,100,100,0.85);
@@ -26,10 +43,6 @@ body {
 .graphic-attribution a {
     color: white;
 }
-.icon-home {
-	padding-right: 0;
-	float: left;
-}
 h5 {
 	font-size: 21.25px;
 	line-height: 31.25px;
@@ -37,7 +50,7 @@ h5 {
 	margin-bottom: 25px;
 }
 .footer {
-	background-color: #222;
+	background-color: @navigation-color;
 	.graphic-attribution {
 		display: none;
 	}
@@ -47,18 +60,28 @@ h5 {
 }
 .socialbuttons-component {
 	position: relative;
-    top: 10px;
     text-align: right;
 }
-.about-links {
+.about-section {
 	font-size: 0.8em;
 	a {
 		text-decoration: underline;
 		cursor: pointer;
 	}
+	p {
+		margin: 0px;
+	}
+}
+.about-credit {
+	text-align: center;
+	margin-bottom: 10px;
 }
 .footer-logo {
 	text-align: left;
+}
+.footer-logo img {
+	max-height: 70px;
+	display: inline-block;
 }
 .block {
 	.text-component {
@@ -73,7 +96,7 @@ h5 {
 		}
 	}
 	.narrative-component {
-		a {
+		.narrative-content-item a {
 			color: white;
 		}
 		.narrative-slider-graphic img {
@@ -141,11 +164,19 @@ h5 {
 				text-align: center;
 			}
 			.graphic-inner img {
-				content: url("assets/intro_logo.png");
-				max-height: 350px;
+				content: url("assets/intro-logo.png");
+				max-height: 290px;
 			}
 			.graphic-attribution {
 				display: none;
+			}
+		}
+		&.clipboard {
+			.graphic-widget {
+				text-align: center;
+			}
+			.graphic-inner img {
+				max-height: 290px;
 			}
 		}
 		&.white {

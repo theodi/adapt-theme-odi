@@ -22,6 +22,22 @@ define(function(require) {
 		}
 	});
 
+	Adapt.on('pageView:ready', function(view) {
+		$('.intro-logo .graphic-widget img').attr('src','adapt/css/assets/intro-logo.png');
+		$('.intro-logo .graphic-widget img').attr('data-large','adapt/css/assets/intro-logo.png');
+		$('.intro-logo .graphic-widget img').attr('data-small','adapt/css/assets/intro-logo.png');
+		try {
+            email = Adapt.course.get('_globals')._extensions._aboutPage.contactEMail;
+            text = Adapt.course.get('_globals')._extensions._aboutPage.contactLinkText;
+			if (!email) { email = Adapt.course.get('_globals')._theme._ukraine.contactEMail; }
+			if (!text) { text = Adapt.course.get('_globals')._theme._ukraine.contactLinkText; }
+			if( $('.about-links').size() > 0) {
+            	$('.about-links').append(' | ');
+        	} 
+        	$('.about-links').append('<a class="contact" href="mailto:'+email+'">'+text+'</a>');
+		} catch (err) {}
+	});
+
 	Adapt.on('userDetails:updated', function(user) {
 		emailSave(user);
 		emailPresent = true;
@@ -143,18 +159,5 @@ function getEmail() {
 		user = {};
 		user.email = email;
 		Adapt.trigger('userDetails:updated',user);
-	}
-}
-function callTrigger(type) {
-	var Adapt = require('coreJS/adapt');
-	console.log(type);
-	if (type == "skillsFramework:showSkills") {
-		Adapt.trigger('skillsFramework:showSkills');
-	}
-	if (type == "aboutPage:showAboutPage") {
-		Adapt.trigger('aboutPage:showAboutPage');
-	}
-	if (type == "licencePage:showLicencePage") {
-		Adapt.trigger('licencePage:showLicencePage');
 	}
 }

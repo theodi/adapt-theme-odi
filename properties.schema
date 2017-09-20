@@ -3,6 +3,32 @@
   "$schema": "http://json-schema.org/draft-04/schema",
   "id": "http://jsonschema.net",
   "$ref": "http://localhost/plugins/content/theme/model.schema",
+  "globals": {
+      "aboutCredit": {
+          "type" : "string",
+          "inputType" : "TextArea",
+          "title" : "Credit (in footer)",
+          "default" : "Developed for <a href='//data.gov.ua' target='_blank'>data.gov.ua</a> by the <a href='https://theodi.org/' target='_blank'>Open Data Institute</a>",
+          "help" : "The text which appears at the direct credit on each page.",
+          "translatable" : true
+      },
+      "contactEMail": {
+          "type" : "string",
+          "inputType" : "Text",
+          "title" : "Contact email",
+          "default" : "training@theodi.org",
+          "help" : "The email contact for the footer",
+          "translatable" : true
+      },
+      "contactLinkText": {
+          "type" : "string",
+          "inputType" : "Text",
+          "title" : "Contact text",
+          "default" : "Contact",
+          "help" : "The link text which is shown against the email address.",
+          "translatable" : true
+      }
+  },
   "properties":{
     "_screenSize": {
       "type":"object",
