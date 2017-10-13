@@ -2,7 +2,7 @@
     "name": "adapt-theme-odi",
     "repository": "git@github.com:davetaz/adapt-theme-odi.git",
     "framework": "^2.0.0",
-    "version": "0.4.0",
+    "version": "0.4.1",
     "homepage": "https://github.com/davetaz/adapt-theme-odi",
     "issues": "https://github.com/davetaz/adapt-theme-odi/issues",
     "displayName": "ODI",
