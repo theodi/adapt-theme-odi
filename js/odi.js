@@ -162,6 +162,22 @@ define(function(require) {
 
 });
 
+
+function validateInput(user) {
+	valid = true;
+	var Adapt = require('coreJS/adapt');
+	var items = Adapt.course.get('_trackingHub').fields;
+	_.each(items, function(item) {
+		if (item.required && !user[item.id]) {
+			valid = false;
+		}
+		if (item.type == "email" && !validateEmail(user[item.id])) {
+			valid = false;
+		}
+	});
+	return valid;
+}
+
 function validateEmail(email) {
     var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(email);
