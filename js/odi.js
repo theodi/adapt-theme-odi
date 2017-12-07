@@ -77,12 +77,27 @@ define(function(require) {
 	var click_bind = false;
 
 	function showMessage(phraseId) {
-		console.log("In show message");
-		
+		var saveTitle = Adapt.course.get('_trackingHub').saveTitle;
+		var saveBody = Adapt.course.get('_trackingHub').saveBody;
+		var items = Adapt.course.get('_trackingHub').fields;
+
+		var fields = "<div align='center'>";
+		_.each(items, function(item) {
+			var required = "";
+			if(item.required) {
+				required = "required";
+			}
+			fields += item.title + ": <input id='"+item.id+"' type='" + item.type + "' class='email-input' placeholder='" + item.placeholder + "' " + required + "></input><br/>";
+		});
+		fields += "<br/><br/><input type='submit' id='email_submit' value='OK' style='padding: 10px;' class='notify-popup-done course_link' role='button' aria-label='submit email' onClick='getUser();'></input></div>";
+
+		saveBody = saveBody + fields;
+
 		var alertObject = {
-            title: "Save your progress, earn rewards...",
-            body: "<p>Please enter your <b>email</b> address in the box below. You will receive an email linking to your unique profile so you can save your progress, earn rewards and resume your learning on any device.</p><br/><div align='center'><input type='email' id='email' class='email-input' placeholder='Email address' required></input><br/><br/><input type='submit' id='email_submit' value='OK' style='padding: 10px;' class='notify-popup-done course_link' role='button' aria-label='submit email' onClick='getEmail();'></input></div>"
-        };
+            		title: saveTitle,
+		        body: saveBody
+	        };
+	
         
         Adapt.once("notify:closed", function() {
             Adapt.trigger("tutor:closed");
@@ -152,12 +167,16 @@ function validateEmail(email) {
     return re.test(email);
 }
 
-function getEmail() {
+function getUser() {
 	var Adapt = require('coreJS/adapt');
-	email = $("input[id='email']").val();
-	if (validateEmail(email)) {
-		user = {};
-		user.email = email;
+	user = {};
+	var items = Adapt.course.get('_trackingHub').fields;
+
+	_.each(items, function(item) {
+		user[item.id] = $("input[id='" + item.id + "']").val();
+	});
+
+	if (validateInput(user)) {
 		Adapt.trigger('userDetails:updated',user);
 	}
 }
