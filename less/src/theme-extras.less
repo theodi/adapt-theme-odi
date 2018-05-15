@@ -18,6 +18,10 @@ body {
 .icon-home {
 	padding-right: 0;
 	float: left;
+	display: none;
+}
+.navigation-back-button {
+	display: none;
 }
 .about-credit p {
 	display: inline;
@@ -32,9 +36,6 @@ body {
 		}
 	}
 }
-.button {
-	text-decoration: none;
-}
 .graphic-attribution {
     position: relative;
     background-color: rgba(100,100,100,0.85);
@@ -43,22 +44,11 @@ body {
     padding: 3px;
     color: white;
 }
+a {
+	color: inherit;
+}
 .graphic-attribution a {
     color: white;
-}
-.gmcq-component {
-	.graphic-attribution {
-		bottom: 1.9em;
-	}
-	.gmcq-item-checkbox {
-		top: -27px;
-		padding: 10px;
-		background: #eee;
-	}
-	.gmcq-item-inner {
-		padding-top: 0px;
-		padding-bottom: 0px;
-	}
 }
 h5 {
 	font-size: 21.25px;
@@ -192,7 +182,7 @@ h5 {
 			}
 			.graphic-inner img {
 				content: url("assets/intro-logo.png");
-				max-height: 290px;
+				max-height: 200px;
 			}
 			.graphic-attribution {
 				display: none;
@@ -320,9 +310,6 @@ h5 {
 		.buttons button {
 			background-color: @odi-color-one;
 		}
-		.button {
-			color: @white;
-		}
 	}
 	&.color-two {
 		.graphic-component {
@@ -381,9 +368,6 @@ h5 {
 		}
 		.buttons button {
 			background-color: @odi-color-two;
-		}
-		.button {
-			color: @white;
 		}
 	}
 	&.color-three {
@@ -444,9 +428,6 @@ h5 {
 		.buttons button {
 			background-color: @odi-color-three;
 		}
-		.button {
-			color: @white;
-		}
 	}
 	&.color-four {
 		.graphic-component {
@@ -506,9 +487,14 @@ h5 {
 		.buttons button {
 			background-color: @odi-color-four;
 		}
-		.button {
-			color: @white;
+		.button, button {
+			background-color: @odi-color-four;
+			color: white;
+			a {
+				color: white;
+			}
 		}
+	
 	}
 	&.color-five {
 		.graphic-component {
@@ -567,9 +553,6 @@ h5 {
 		}
 		.buttons button {
 			background-color: @odi-color-five;
-		}
-		.button {
-			color: @white;
 		}
 	}
 	&.color-six {
@@ -630,9 +613,6 @@ h5 {
 		.buttons button {
 			background-color: @odi-color-six;
 		}
-		.button {
-			color: @white;
-		}
 	}
 	&.color-seven {
 		.graphic-component {
@@ -691,9 +671,6 @@ h5 {
 		}
 		.buttons button {
 			background-color: @odi-color-seven;
-		}
-		.button {
-			color: @white;
 		}
 	}
 	&.color-eight {
@@ -754,9 +731,6 @@ h5 {
 		.buttons button {
 			background-color: @odi-color-eight;
 		}
-		.button {
-			color: @white;
-		}
 	}
 	&.color-nine {
 		.graphic-component {
@@ -815,9 +789,6 @@ h5 {
 		}
 		.buttons button {
 			background-color: @odi-color-nine;
-		}
-		.button {
-			color: @white;
 		}
 	}
 	&.color-ten {
@@ -878,16 +849,13 @@ h5 {
 		.buttons button {
 			background-color: @odi-color-ten;
 		}
-		.button {
-			color: @white;
-		}
 	}
 	&.inverted {
 		a, a:hover, a:visited {
 			color: @primary-color-inverted;
 		}
 		.buttons button {
-			background-color: @primary-color-inverted;
+			background-color: @white;
 		}
 		.narrative-component .narrative-progress {
 			background-color: @primary-color-inverted;
@@ -948,7 +916,11 @@ h5 {
 			.mcq-answer-icon.checkbox {
 				border: 3px solid @odi-color-one;
 			}
-			.buttons button {
+			.button {
+				background-color: @white;
+				color: @odi-color-one;
+			}
+			.buttons button a {
 				color: @odi-color-one;
 			}
 		}
@@ -969,7 +941,11 @@ h5 {
 			.mcq-answer-icon.checkbox {
 				border: 3px solid @odi-color-two;
 			}
-			.buttons button {
+			.button {
+				background-color: @white;
+				color: @odi-color-two;
+			}
+			.buttons button a {
 				color: @odi-color-two;
 			}
 		}
@@ -990,7 +966,11 @@ h5 {
 			.mcq-answer-icon.checkbox {
 				border: 3px solid @odi-color-three;
 			}
-			.buttons button {
+			.button {
+				background-color: @white;
+				color: @odi-color-three;
+			}
+			.buttons button a {
 				color: @odi-color-three;
 			}
 		}
@@ -1011,7 +991,11 @@ h5 {
 			.mcq-answer-icon.checkbox {
 				border: 3px solid @odi-color-four;
 			}
-			.buttons button {
+			.button {
+				background-color: @white;
+				color: @odi-color-four;
+			}
+			.buttons button a {
 				color: @odi-color-four;
 			}
 		}
@@ -1032,7 +1016,11 @@ h5 {
 			.mcq-answer-icon.checkbox {
 				border: 3px solid @odi-color-five;
 			}
-			.buttons button {
+			.button {
+				background-color: @white;
+				color: @odi-color-five;
+			}
+			.buttons button a {
 				color: @odi-color-five;
 			}
 		}
@@ -1053,7 +1041,11 @@ h5 {
 			.mcq-answer-icon.checkbox {
 				border: 3px solid @odi-color-six;
 			}
-			.buttons button {
+			.button {
+				background-color: @white;
+				color: @odi-color-six;
+			}
+			.buttons button a {
 				color: @odi-color-six;
 			}
 		}
@@ -1074,7 +1066,11 @@ h5 {
 			.mcq-answer-icon.checkbox {
 				border: 3px solid @odi-color-seven;
 			}
-			.buttons button {
+			.button {
+				background-color: @white;
+				color: @odi-color-seven;
+			}
+			.buttons button a {
 				color: @odi-color-seven;
 			}
 		}
@@ -1095,7 +1091,11 @@ h5 {
 			.mcq-answer-icon.checkbox {
 				border: 3px solid @odi-color-eight;
 			}
-			.buttons button {
+			.button {
+				background-color: @white;
+				color: @odi-color-eight;
+			}
+			.buttons button a {
 				color: @odi-color-eight;
 			}
 		}
@@ -1116,7 +1116,11 @@ h5 {
 			.mcq-answer-icon.checkbox {
 				border: 3px solid @odi-color-nine;
 			}
-			.buttons button {
+			.button {
+				background-color: @white;
+				color: @odi-color-nine;
+			}
+			.buttons button a {
 				color: @odi-color-nine;
 			}
 		}
@@ -1137,7 +1141,11 @@ h5 {
 			.mcq-answer-icon.checkbox {
 				border: 3px solid @odi-color-ten;
 			}
-			.buttons button {
+			.button {
+				background-color: @white;
+				color: @odi-color-ten;
+			}
+			.buttons button a {
 				color: @odi-color-ten;
 			}
 		}
