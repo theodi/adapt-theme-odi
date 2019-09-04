@@ -2,7 +2,7 @@
     "name": "adapt-theme-coloured-blocks",
     "repository": "git@github.com:theodi/adapt-theme-coloured-blocks.git",
     "framework": "^2.0.0",
-    "version": "0.9.2",
+    "version": "0.9.3",
     "homepage": "https://github.com/theodi/adapt-theme-coloured-blocks/",
     "issues": "https://github.com/theodi/adapt-theme-coloured-blocks/issues",
     "displayName": "Coloured blocks",

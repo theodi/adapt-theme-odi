@@ -110,6 +110,7 @@
             "title": "Position of the logo in the nav bar",
             "help": "Left, right or center",
             "type": "string",
+            "inputType": "Text",
             "enum": ["left", "right", "center"],
             "default": "center"
           },
