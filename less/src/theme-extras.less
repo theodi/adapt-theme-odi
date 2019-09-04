@@ -150,14 +150,19 @@ h5 {
 .navigation {
 	img.navigation-logo {
 		content: url("@{navigation-logo}");
-		float: left;
+		float: @nav-logo-position;
 		height: @nav-logo-height;
 		padding-top: @nav-logo-padding-top;
-		padding-left: @nav-logo-padding-left;
+		& when (@nav-logo-position = left) {
+			padding-left: @nav-logo-padding-left-right;
+		}
+		& when (@nav-logo-position = right) {
+			padding-right: @nav-logo-padding-left-right;	
+		}
 		@media all and (max-width: @device-width-small) {
 			height: @nav-logo-height-mobile;
 			padding-top: @nav-logo-padding-top-mobile;
-			padding-left: @nav-logo-padding-left-mobile;
+			padding-left: @nav-logo-padding-left-right-mobile;
 		}
 	}
 	background:url("@{navigation-background}");

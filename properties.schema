@@ -101,24 +101,31 @@
           },
           "navigation-logo": {
             "title": "Nav bar logo",
-            "help": "This is the logo image, it will be displayed in the top left of the navigation bar.",
+            "help": "This is the logo image, it will be displayed in the navigation bar.",
             "type": "string",
             "inputType": "Asset:image",
             "default": ""
+          },
+          "nav-logo-position": {
+            "title": "Position of the logo in the nav bar",
+            "help": "Left or right",
+            "type": "string",
+            "enum": ["left", "right"],
+            "default": "left"
           },
           "nav-logo-height": {
             "title": "Navigation logo height",
             "help": "The height of the navigation logo",
             "type": "string",
             "inputType": "Text",
-            "default": "60px"
+            "default": "50px"
           },
           "nav-logo-height-mobile": {
             "title": "Navigation logo height (mobile)",
             "help": "The height of the navigation logo on small screens",
             "type": "string",
             "inputType": "Text",
-            "default": "50px"
+            "default": "40px"
           },
           "nav-logo-padding-top": {
             "title": "Navigation logo top padding",
@@ -134,19 +141,19 @@
             "inputType": "Text",
             "default": "3px"
           },
-          "nav-logo-padding-left": {
+          "nav-logo-padding-left-right": {
             "title": "Navigation logo left padding",
             "help": "The padding to the left the navigation logo",
             "type": "string",
             "inputType": "Text",
-            "default": "5px"
+            "default": "15px"
           },
-          "nav-logo-padding-left-mobile": {
+          "nav-logo-padding-left-right-mobile": {
             "title": "Navigation logo left padding (mobile)",
             "help": "he padding to the left the navigation logo on small screens",
             "type": "string",
             "inputType": "Text",
-            "default": "3px"
+            "default": "15px"
           }
         }
       },
