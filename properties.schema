@@ -8,7 +8,7 @@
           "type" : "string",
           "inputType" : "TextArea",
           "title" : "Credit (in footer)",
-          "default" : "Developed for <a href='//data.gov.ua' target='_blank'>data.gov.ua</a> by the <a href='https://theodi.org/' target='_blank'>Open Data Institute</a>",
+          "default" : "",
           "help" : "The text which appears at the direct credit on each page.",
           "translatable" : true
       },
@@ -30,6 +30,351 @@
       }
   },
   "properties":{
+    "variables": {
+      "_paddings" : {
+        "type" : "object",
+        "required" : false,
+        "title" : "Generic",
+        "properties" : {
+            "hide-nav" : {
+              "title" : "Hide navigation icons?",
+              "help" : "Tick this to hide the navigation icons, used in single page courses.",
+              "type" : "boolean",
+              "inputType" : "Boolean",
+              "default" : false
+            },
+            "max-width" : {
+              "title" : "Max width",
+              "help" : "The maximum width of the page",
+              "type" : "string",
+              "inputType" : "Text",
+              "default" : "1400px"
+            },
+            "device-width-small" : {
+              "title" : "Small device width",
+              "help" : "Break point for small device layout",
+              "type" : "string",
+              "inputType" : "Text",
+              "default" : "520px"
+            },
+            "device-width-medium" : {
+              "title" : "Medium device width",
+              "help" : "Break point for medium size device layout",
+              "type" : "string",
+              "inputType" : "Text",
+              "default" : "520px"
+            },
+            "device-width-large" : {
+              "title" : "Large device width",
+              "help" : "Break point for large size device layout",
+              "type" : "string",
+              "inputType" : "Text",
+              "default" : "900px"
+            }
+          }
+        },
+        "_fonts" : {
+          "type" : "object",
+          "required" : false,
+          "title" : "Fonts",
+          "properties" : {
+            "font-family" : {
+            "title" : "Font family",
+            "help" : "The font family",
+            "type" : "The font-family property should hold several font names as a fallback system, to ensure maximum compatibility between browsers/operating systems. If the browser does not support the first font, it tries the next font. Start with the font you want, and end with a generic family, to let the browser pick a similar font in the generic family, if no other fonts are available:",
+            "inputType" : "Text",
+            "default" : "'Open Sans', Helvetica, Arial, sans-serif"
+          }
+        }
+      },
+      "_images": {
+        "type": "object",
+        "required": false,
+        "title": "Images",
+        "properties": {
+          "theme-logo": {
+            "title": "First block logo",
+            "help": "This is the logo image, it will be displayed in any graphic commponent with the 'intro-logo' class.",
+            "type": "string",
+            "inputType": "Asset:image",
+            "default": ""
+          },
+          "navigation-logo": {
+            "title": "Nav bar logo",
+            "help": "This is the logo image, it will be displayed in the top left of the navigation bar.",
+            "type": "string",
+            "inputType": "Asset:image",
+            "default": ""
+          },
+          "nav-logo-height": {
+            "title": "Navigation logo height",
+            "help": "The height of the navigation logo",
+            "type": "string",
+            "inputType": "Text",
+            "default": "60px"
+          },
+          "nav-logo-height-mobile": {
+            "title": "Navigation logo height (mobile)",
+            "help": "The height of the navigation logo on small screens",
+            "type": "string",
+            "inputType": "Text",
+            "default": "50px"
+          },
+          "nav-logo-padding-top": {
+            "title": "Navigation logo top padding",
+            "help": "The padding above the navigation logo",
+            "type": "string",
+            "inputType": "Text",
+            "default": "5px"
+          },
+          "nav-logo-padding-top-mobile": {
+            "title": "Navigation logo top padding (mobile)",
+            "help": "he padding above the navigation logo on small screens",
+            "type": "string",
+            "inputType": "Text",
+            "default": "3px"
+          },
+          "nav-logo-padding-left": {
+            "title": "Navigation logo left padding",
+            "help": "The padding to the left the navigation logo",
+            "type": "string",
+            "inputType": "Text",
+            "default": "5px"
+          },
+          "nav-logo-padding-left-mobile": {
+            "title": "Navigation logo left padding (mobile)",
+            "help": "he padding to the left the navigation logo on small screens",
+            "type": "string",
+            "inputType": "Text",
+            "default": "3px"
+          }
+        }
+      },
+      "_colors": {
+        "type": "object",
+        "required": false,
+        "title": "Colours",
+        "properties": {
+          "menu-color-count": {
+            "title": "Menu colour count",
+            "help": "The number of different colours used in the menu blocks, starts with colour one and then cycles until n.",
+            "type": "string",
+            "inputType": "Text",
+            "default": "3"
+          },
+          "color-one": {
+            "title": "Colour one (Primary colour)",
+            "help": "This is the primary colour used to style the course, and is applied to component items and pop-up notifications.",
+            "type": "string",
+            "inputType": "ColourPicker",
+            "default": "#3099FF"
+          },
+          "primary-color-inverted": {
+            "title": "Primary Inverted",
+            "help": "This is the inverted primary colour, and is applied to text that is displayed on elements coloured with primary.",
+            "type": "string",
+            "inputType": "ColourPicker",
+            "default": "#ffffff"
+          },
+          "color-two": {
+            "title": "Colour two (Secondary colour)",
+            "help": "This is the secondary colour used to style the course, and is typically applied to buttons.",
+            "type": "string",
+            "inputType": "ColourPicker",
+            "default": "#666666"
+          },
+          "secondary-color-inverted": {
+            "title": "Secondary Inverted",
+            "help": "This is the inverted secondary colour, and is applied to text that is displayed on elements coloured with secondary.",
+            "type": "string",
+            "inputType": "ColourPicker",
+            "default": "#ffffff"
+          },
+          "color-three": {
+            "title": "Colour three (Tertiary colour)",
+            "help": "This is the tertiary colour used to style the course.",
+            "type": "string",
+            "inputType": "ColourPicker",
+            "default": "#7d82be"
+          },
+          "tertiary-color-inverted": {
+            "title": "Tertiary Inverted",
+            "help": "This is the inverted tertiary colour, and is applied to text that is displayed on elements coloured with tertiary.",
+            "type": "string",
+            "inputType": "ColourPicker",
+            "default": "#4b4e4f"
+          },
+          "color-four": {
+            "title": "Colour four",
+            "help": "A fourth theme colour",
+            "type": "string",
+            "inputType": "ColourPicker",
+            "default": "#ff9000"
+          },
+          "color-four-inverted": {
+            "title": "Colour four Inverted",
+            "help": "This is the inverted fourth colour, and is applied to text that is displayed on elements coloured with colour four.",
+            "type": "string",
+            "inputType": "ColourPicker",
+            "default": "#ffffff"
+          },
+          "color-five": {
+            "title": "Colour five",
+            "help": "A fifth theme colour",
+            "type": "string",
+            "inputType": "ColourPicker",
+            "default": "#de4a8d"
+          },
+          "color-five-inverted": {
+            "title": "Colour five Inverted",
+            "help": "This is the inverted fifth colour, and is applied to text that is displayed on elements coloured with colour five.",
+            "type": "string",
+            "inputType": "ColourPicker",
+            "default": "#ffffff"
+          },
+          "color-six": {
+            "title": "Colour six",
+            "help": "A sixth theme colour",
+            "type": "string",
+            "inputType": "ColourPicker",
+            "default": "#ff6600"
+          },
+          "color-six-inverted": {
+            "title": "Colour six Inverted",
+            "help": "This is the inverted sixth colour, and is applied to text that is displayed on elements coloured with colour six.",
+            "type": "string",
+            "inputType": "ColourPicker",
+            "default": "#ffffff"
+          },
+          "color-seven": {
+            "title": "Colour seven",
+            "help": "A seventh theme colour",
+            "type": "string",
+            "inputType": "ColourPicker",
+            "default": "#333666"
+          },
+          "color-seven-inverted": {
+            "title": "Colour seven Inverted",
+            "help": "This is the inverted seventh colour, and is applied to text that is displayed on elements coloured with colour seven.",
+            "type": "string",
+            "inputType": "ColourPicker",
+            "default": "#ffffff"
+          },
+          "color-eight": {
+            "title": "Colour eight",
+            "help": "An eigth theme colour",
+            "type": "string",
+            "inputType": "ColourPicker",
+            "default": "#006699"
+          },
+          "color-eight-inverted": {
+            "title": "Colour eight Inverted",
+            "help": "This is the inverted eigth colour, and is applied to text that is displayed on elements coloured with colour eight.",
+            "type": "string",
+            "inputType": "ColourPicker",
+            "default": "#ffffff"
+          },
+          "color-nine": {
+            "title": "Colour nine",
+            "help": "A ninth theme colour",
+            "type": "string",
+            "inputType": "ColourPicker",
+            "default": "#006633"
+          },
+          "color-nine-inverted": {
+            "title": "Colour nine Inverted",
+            "help": "This is the inverted ninth colour, and is applied to text that is displayed on elements coloured with colour nine.",
+            "type": "string",
+            "inputType": "ColourPicker",
+            "default": "#ffffff"
+          },
+          "color-ten": {
+            "title": "Colour ten",
+            "help": "A tenth theme colour",
+            "type": "string",
+            "inputType": "ColourPicker",
+            "default": "#000000"
+          },
+          "color-ten-inverted": {
+            "title": "Colour ten Inverted",
+            "help": "This is the inverted tenth colour, and is applied to text that is displayed on elements coloured with colour ten.",
+            "type": "string",
+            "inputType": "ColourPicker",
+            "default": "#ffffff"
+          },
+          "quaternary-color": {
+            "title": "Drawer colour",
+            "help": "Applied to the drawer.",
+            "type": "string",
+            "inputType": "ColourPicker",
+            "default": "#37474f"
+          },
+          "quaternary-color-inverted": {
+            "title": "Drawer inverted",
+            "help": "This is the inverted drawer colour, and is applied to text that is displayed on elements coloured with the drawer colour.",
+            "type": "string",
+            "inputType": "ColourPicker",
+            "default": "#ffffff"
+          },
+          "foreground-color": {
+            "title": "Foreground",
+            "help": "This is the foreground colour, and is applied to all body text.",
+            "type": "string",
+            "inputType": "ColourPicker",
+            "default": "#000000"
+          },
+          "background-color": {
+            "title": "Background",
+            "help": "This is the background colour, and is applied to many elements including pages, articles and blocks.",
+            "type": "string",
+            "inputType": "ColourPicker",
+            "default": "#ffffff"
+          },
+          "foreground-color-inverted": {
+            "title": "Foreground Inverted",
+            "help": "This is the inverted foreground colour, and is applied to text on menus and page headers.",
+            "type": "string",
+            "inputType": "ColourPicker",
+            "default": "#ffffff"
+          },
+          "background-color-inverted": {
+            "title": "Background Inverted",
+            "help": "This is the inverted background colour, and is applied to menus and page headers.",
+            "type": "string",
+            "inputType": "ColourPicker",
+            "default": "#999999"
+          },
+          "validation-error": {
+            "title": "Validation error",
+            "help": "This is the validation error colour, and is applied to elements which display an incorrect field.",
+            "type": "string",
+            "inputType": "ColourPicker",
+            "default": "#f26c4f"
+          },
+          "validation-success": {
+            "title": "Validation success",
+            "help": "This is the validation success colour, and is applied to elements which display a correct field.",
+            "type": "string",
+            "inputType": "ColourPicker",
+            "default": "#82ca9c"
+          },
+          "disabled-color": {
+            "title": "Disabled",
+            "help": "This is the disabled colour, and is applied to elements which have been disabled.",
+            "type": "string",
+            "inputType": "ColourPicker",
+            "default": "#727272"
+          },
+          "disabled-color-inverted": {
+            "title": "Disabled Inverted",
+            "help": "This is the inverted disabled colour, and is applied to text on elements which have been disabled.",
+            "type": "string",
+            "inputType": "ColourPicker",
+            "default": "#cccccc"
+          }
+        }
+      }
+    },
     "_screenSize": {
       "type":"object",
       "required":true,

@@ -1,19 +1,19 @@
 {
     "name": "adapt-theme-odi",
-    "repository": "git@github.com:davetaz/adapt-theme-odi.git",
+    "repository": "git@github.com:theodi/adapt-theme-odi.git",
     "framework": "^2.0.0",
-    "version": "0.4.1",
-    "homepage": "https://github.com/davetaz/adapt-theme-odi",
-    "issues": "https://github.com/davetaz/adapt-theme-odi/issues",
-    "displayName": "ODI",
-    "theme": "ODI",
-    "description": "A custom theme for ODI modules",
-    "main": "js/odi.js",
+    "version": "0.8.5",
+    "homepage": "https://github.com/theodi/adapt-theme-odi/",
+    "issues": "https://github.com/theodi/adapt-theme-odi/issues",
+    "displayName": "ODI Generic",
+    "theme": "ODI-Generic",
+    "description": "Generic ODI eLearning template that is customisable",
+    "main": "js/theme.js",
     "keywords": [
         "adapt-plugin",
         "adapt-theme"
     ],
-    "license": "GPLv3",
+    "licenfco": "GPLv3",
     "ignore": [
         "**/.*",
         "node_modules",

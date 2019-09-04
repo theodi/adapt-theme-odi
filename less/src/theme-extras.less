@@ -9,7 +9,7 @@
 body {
 	background: #f3f2f2 url('assets/cubes.png');
 	background-position: 5px 5px;
-	font-family: "Helvetica Neue",Arial,sans-serif;
+	font-family: @font-family;
 	font-weight: 300;
 	color: #6d6d6d;
 	font-size: 17px;
@@ -18,22 +18,59 @@ body {
 .icon-home {
 	padding-right: 0;
 	float: left;
+	& when (@hide-nav = true) {
+		display: none;
+	}
 }
 .navigation-back-button {
+	& when (@hide-nav = true) {
+		display: none;
+	}
 }
 .about-credit p {
 	display: inline;
 }
-.hotgraphic-component .hotgraphic-item-graphic {
-	@media all and (min-width: @device-width-medium) {
-		display: none;	
-	}
+
+.boxmenu-loop (@i,@k) when (@i > 0) {
+    @j: (@i - 1);
+    .menu-item:nth-child(@{k}n+@{j}) when (@j > 1) {
+      @cindex: (@j - 1);
+      @color: extract(@colors, @cindex);
+      @inverted: extract(@colors-inverted, @cindex);
+      .boxmenu-inner(@color,@inverted);
+    }
+    .menu-item:nth-child(@{k}n+@{j}) when (@j = 1) {
+      @color: extract(@colors, @k);
+      @inverted: extract(@colors-inverted, @k);
+      .boxmenu-inner(@color,@inverted);
+    }
+    .menu-item:nth-child(@{k}n+@{j}) when (@j = 0) {
+      @cindex: (@k - 1);
+      @color: extract(@colors, @cindex);
+      @inverted: extract(@colors-inverted, @cindex);
+      .boxmenu-inner(@color,@inverted);
+    }   
+    .boxmenu-loop(@i - 1,@k);
 }
-.hotgraphic-component .hotgraphic-item-content {
-	@media all and (min-width: @device-width-medium) {
-		width: 100%;	
-	}
+
+.boxmenu-inner(@color,@inverted) {
+	.menu-item-inner {
+    	background-color: @color;
+        color: @inverted;
+    }
+    .menu-item-button button {
+        background-color: @inverted;
+        color: @color;
+    }
+    .page-level-progress-menu-item-indicator {
+        background-color: @inverted;
+    }
+    .page-level-progress-menu-item-indicator-bar{
+        background-color: @color;
+    }
 }
+
+
 .menu {
 	.menu-item {
 		@media all and (max-width: @device-width-medium) {
@@ -43,7 +80,9 @@ body {
 			width: 100%;
 		}
 	}
+	.boxmenu-loop(@menu-color-count, @menu-color-count);
 }
+
 .graphic-attribution {
     position: relative;
     background-color: rgba(100,100,100,0.85);
@@ -108,7 +147,270 @@ h5 {
 	max-height: 70px;
 	display: inline-block;
 }
+.navigation {
+	img.navigation-logo {
+		content: url("@{navigation-logo}");
+		float: left;
+		height: @nav-logo-height;
+		padding-top: @nav-logo-padding-top;
+		padding-left: @nav-logo-padding-left;
+		@media all and (max-width: @device-width-small) {
+			height: @nav-logo-height-mobile;
+			padding-top: @nav-logo-padding-top-mobile;
+			padding-left: @nav-logo-padding-left-mobile;
+		}
+	}
+}
+
+.article:not(.invert-even) {
+	@invert: odd;
+	&.color-one { .setColour(@color-one,@color-one-inverted,@invert); }
+	&.color-two { .setColour(@color-two,@color-two-inverted,@invert); }
+	&.color-three { .setColour(@color-three,@color-three-inverted,@invert); }
+	&.color-four { .setColour(@color-four,@color-four-inverted,@invert); }
+	&.color-five { .setColour(@color-five,@color-five-inverted,@invert); }
+	&.color-six { .setColour(@color-six,@color-six-inverted,@invert); }
+	&.color-seven { .setColour(@color-seven,@color-seven-inverted,@invert); }
+	&.color-eight { .setColour(@color-eight,@color-eight-inverted,@invert); }
+	&.color-nine { .setColour(@color-nine,@color-nine-inverted,@invert); }
+	&.color-ten { .setColour(@color-ten,@color-ten-inverted,@invert); }
+}
+.article {
+	&.invert-even {
+		@invert: even;
+		&.color-one { .setColour(@color-one,@color-one-inverted,@invert); }
+		&.color-two { .setColour(@color-two,@color-two-inverted,@invert); }
+		&.color-three { .setColour(@color-three,@color-three-inverted,@invert); }
+		&.color-four { .setColour(@color-four,@color-four-inverted,@invert); }
+		&.color-five { .setColour(@color-five,@color-five-inverted,@invert); }
+		&.color-six { .setColour(@color-six,@color-six-inverted,@invert); }
+		&.color-seven { .setColour(@color-seven,@color-seven-inverted,@invert); }
+		&.color-eight { .setColour(@color-eight,@color-eight-inverted,@invert); }
+		&.color-nine { .setColour(@color-nine,@color-nine-inverted,@invert); }
+		&.color-ten { .setColour(@color-ten,@color-ten-inverted,@invert); }
+	}
+}
+.setColour(@color,@color-inverted,@invert) {
+	.block {
+		.setNormal(@color,@color-inverted);
+		&.color-one { .setNormal(@color-one,@color-one-inverted); }
+		&.color-two { .setNormal(@color-two,@color-two-inverted); }
+		&.color-three { .setNormal(@color-three,@color-three-inverted); }
+		&.color-four { .setNormal(@color-four,@color-four-inverted); }
+		&.color-five { .setNormal(@color-five,@color-five-inverted); }
+		&.color-six { .setNormal(@color-six,@color-six-inverted); }
+		&.color-seven { .setNormal(@color-seven,@color-seven-inverted); }
+		&.color-eight { .setNormal(@color-eight,@color-eight-inverted); }
+		&.color-nine { .setNormal(@color-nine,@color-nine-inverted); }
+		&.color-ten { .setNormal(@color-ten,@color-ten-inverted); }	
+		&.inverted {
+			.setInverted(@color,@color-inverted);
+			&.color-one { .setInverted(@color-one,@color-one-inverted); }
+			&.color-two { .setInverted(@color-two,@color-two-inverted); }
+			&.color-three { .setInverted(@color-three,@color-three-inverted); }
+			&.color-four { .setInverted(@color-four,@color-four-inverted); }
+			&.color-five { .setInverted(@color-five,@color-five-inverted); }
+			&.color-six { .setInverted(@color-six,@color-six-inverted); }
+			&.color-seven { .setInverted(@color-seven,@color-seven-inverted); }
+			&.color-eight { .setInverted(@color-eight,@color-eight-inverted); }
+			&.color-nine { .setInverted(@color-nine,@color-nine-inverted); }
+			&.color-ten { .setInverted(@color-ten,@color-ten-inverted); }	
+		}
+	}
+	.block:nth-child(@{invert}):not(.notinverted) {
+		.setInverted(@color,@color-inverted);
+	}
+}
 .block {
+	&.color-one { .setNormal(@color-one,@color-one-inverted); }
+	&.color-two { .setNormal(@color-two,@color-two-inverted); }
+	&.color-three { .setNormal(@color-three,@color-three-inverted); }
+	&.color-four { .setNormal(@color-four,@color-four-inverted); }
+	&.color-five { .setNormal(@color-five,@color-five-inverted); }
+	&.color-six { .setNormal(@color-six,@color-six-inverted); }
+	&.color-seven { .setNormal(@color-seven,@color-seven-inverted); }
+	&.color-eight { .setNormal(@color-eight,@color-eight-inverted); }
+	&.color-nine { .setNormal(@color-nine,@color-nine-inverted); }
+	&.color-ten { .setNormal(@color-ten,@color-ten-inverted); }	
+	&.inverted {
+		&.color-one { .setInverted(@color-one,@color-one-inverted); }
+		&.color-two { .setInverted(@color-two,@color-two-inverted); }
+		&.color-three { .setInverted(@color-three,@color-three-inverted); }
+		&.color-four { .setInverted(@color-four,@color-four-inverted); }
+		&.color-five { .setInverted(@color-five,@color-five-inverted); }
+		&.color-six { .setInverted(@color-six,@color-six-inverted); }
+		&.color-seven { .setInverted(@color-seven,@color-seven-inverted); }
+		&.color-eight { .setInverted(@color-eight,@color-eight-inverted); }
+		&.color-nine { .setInverted(@color-nine,@color-nine-inverted); }
+		&.color-ten { .setInverted(@color-ten,@color-ten-inverted); }	
+	}
+}
+.setNormal(@color,@color-inverted) {
+	.button {
+		background-color: @color;
+		color: @color-inverted;
+		text-decoration: none;
+	}
+	a {
+		&.button {
+			color: @color-inverted;
+		}
+	}
+	.narrative-component {
+		.narrative-slider-graphic img {
+			background-color: @color;
+		}
+	}
+	.graphic-component {
+		&.matchblock {
+			.graphic-inner img {
+				background-color: @color;
+			}
+		}
+	}
+	.accordion-item-title {
+		background-color: @color;
+		.no-touch & {
+			&:hover {
+				background-color: darken(@color, 20%);
+			}
+			&.visited:hover {
+				background-color: darken(@color, 20%);
+			}
+		}
+	}
+	.accordion-item-title:hover {
+		background-color: darken(@color, 20%);
+	}
+	.accordion-item-body {
+		border: 3px solid @color;
+	}
+	.narrative-component .narrative-progress.selected, .narrative-component .narrative-strapline-title {
+		background-color: @color;
+	}
+	.narrative-component {
+		&.matchblock {
+			.narrative-slider-graphic img {
+				background-color: @color;
+			}
+		}
+	}
+	.mcq-component .mcq-item label {
+		background-color: @color;
+		.no-touch & {
+			&:hover {
+				background-color: darken(@color, 20%);
+			}
+			&.visited:hover {
+				background-color: darken(@color, 20%);
+			}
+		}
+	}
+	.mcq-component .incorrect label {
+		background-color: darken(@color, 20%);
+	}
+	.mcq-widget.disabled .mcq-item label.selected.disabled {
+		background-color: @color;
+	}
+	.mcq-widget.disabled .mcq-item label.disabled .mcq-item-icon.mcq-incorrect-icon {
+		color: black;
+	}
+}
+	
+.setInverted(@color,@color-inverted) {
+	background-color: @color;
+	color: @color-inverted;
+	h1,h2,h3,h4,h5,a, a:hover, a:visited {
+		color: @color-inverted;
+	}
+	.button {
+		background-color: @color-inverted;
+		color: @color;
+		text-decoration: none;
+	}
+	a {
+		&.button {
+			color: @color;
+		}
+	}
+	.block-title {
+		color: @color-inverted;
+	}
+    .component-title {
+		color: @color-inverted;
+	}
+	.accordian-item-title {
+		background-color: @mid-grey;
+	}
+	.gmcq-component .gmcq-item-inner, .gmcq-component .gmcq-item, .gmcq-component .gmcq-item label .gmcq-answer-icon, .gmcq-component .gmcq-item label.selected .gmcq-item-inner {
+		color: @color-inverted;
+	}
+	.accordian-item-title {
+		background-color: @mid-grey;
+	}
+	.narrative-component .narrative-progress {
+		background-color: @color-inverted;
+		border: 1px solid @color-inverted;
+	}
+	.accordion-item-title {
+		background-color: @color-inverted;
+		.no-touch & {
+			&:hover {
+				background-color: darken(@color-inverted, 20%);
+			}
+			&.visited:hover {
+				background-color: darken(@color-inverted, 20%);
+			}
+		}
+	}
+	.accordion-item-title:hover {
+		background-color: darken(@color-inverted, 20%);
+	}
+	.accordion-item-body {
+		border: 3px solid @color-inverted;
+		color: @color-inverted;
+	}
+	.mcq-component .mcq-item, .mcq-component .mcq-item label {
+		background-color: @color-inverted;
+		.no-touch & {
+			&:hover {
+				background-color: darken(@color-inverted, 20%);
+			}
+			&.visited:hover {
+				background-color: darken(@color-inverted, 20%);
+			}
+		}
+	}
+	.mcq-component .mcq-item:hover {
+		background-color: darken(@color-inverted, 20%);
+	}
+	.mcq-component .incorrect label {
+		background-color: darken(@color-inverted, 20%);
+	}
+	.mcq-widget.disabled .mcq-item label.selected.disabled {
+		background-color: @color-inverted;
+	}
+	.narrative-component .narrative-progress.selected {
+		background-color: @color;
+	}
+	.accordion-item-title-icon, .accordion-item-title {
+		color: @color;
+	}
+	.accordion-item-body {
+		background-color: @color;
+	}
+	.mcq-component .mcq-item label, .mcq-component .mcq-item label.selected .mcq-item-icon, .mcq-component .mcq-item label .mcq-answer-icon {
+		color: @color;
+	}
+	.mcq-answer-icon.checkbox {
+		border: 3px solid @color;
+	}
+}
+
+.block {
+        &.hidden {
+		display: none;
+	}
 	.text-component {
 		&.ticks ul li {
     	    list-style-type: none;
@@ -132,56 +434,6 @@ h5 {
 				background-color: white;
 			}
 		}
-		&.color-one {
-			.narrative-slider-graphic img {
-				background-color: @odi-color-one;
-			}
-		}
-		&.color-two {
-			.narrative-slider-graphic img {
-				background-color: @odi-color-two;
-			}
-		}
-		&.color-three {
-			.narrative-slider-graphic img {
-				background-color: @odi-color-three;
-			}
-		}
-		&.color-four {
-			.narrative-slider-graphic img {
-				background-color: @odi-color-four;
-			}
-		}
-		&.color-five {
-			.narrative-slider-graphic img {
-				background-color: @odi-color-five;
-			}
-		}
-		&.color-six {
-			.narrative-slider-graphic img {
-				background-color: @odi-color-six;
-			}
-		}
-		&.color-seven {
-			.narrative-slider-graphic img {
-				background-color: @odi-color-seven;
-			}
-		}
-		&.color-eight {
-			.narrative-slider-graphic img {
-				background-color: @odi-color-eight;
-			}
-		}
-		&.color-nine {
-			.narrative-slider-graphic img {
-				background-color: @odi-color-nine;
-			}
-		}
-		&.color-ten {
-			.narrative-slider-graphic img {
-				background-color: @odi-color-ten;
-			}
-		}
 	}
 	.graphic-component {
 		&.intro-logo {
@@ -189,7 +441,7 @@ h5 {
 				text-align: center;
 			}
 			.graphic-inner img {
-				content: url("assets/intro-logo.png");
+				content: url("@{theme-logo}");
 				max-height: 200px;
 			}
 			.graphic-attribution {
@@ -207,1017 +459,6 @@ h5 {
 		&.white {
 			.graphic-inner img {
 				background-color: white;
-			}
-		}
-		&.color-one {
-			.graphic-inner img {
-				background-color: @odi-color-one;
-			}
-		}
-		&.color-two {
-			.graphic-inner img {
-				background-color: @odi-color-two;
-			}
-		}
-		&.color-three {
-			.graphic-inner img {
-				background-color: @odi-color-three;
-			}
-		}
-		&.color-four {
-			.graphic-inner img {
-				background-color: @odi-color-four;
-			}
-		}
-		&.color-five {
-			.graphic-inner img {
-				background-color: @odi-color-five;
-			}
-		}
-		&.color-six {
-			.graphic-inner img {
-				background-color: @odi-color-six;
-			}
-		}
-		&.color-seven {
-			.graphic-inner img {
-				background-color: @odi-color-seven;
-			}
-		}
-		&.color-eight {
-			.graphic-inner img {
-				background-color: @odi-color-eight;
-			}
-		}
-		&.color-nine {
-			.graphic-inner img {
-				background-color: @odi-color-nine;
-			}
-		}
-		&.color-ten {
-			.graphic-inner img {
-				background-color: @odi-color-ten;
-			}
-		}
-	}
-	&.color-one {
-		.graphic-component {
-			&.matchblock {
-				.graphic-inner img {
-					background-color: @odi-color-one;
-				}
-			}
-		}
-		.accordion-item-title {
-			background-color: @odi-color-one;
-			.no-touch & {
-				&:hover {
-					background-color: darken(@odi-color-one, 20%);
-				}
-				&.visited:hover {
-					background-color: darken(@odi-color-one, 20%);
-				}
-			}
-		}
-		.accordion-item-title:hover {
-			background-color: darken(@odi-color-one, 20%);
-		}
-		.accordion-item-body {
-			border: 3px solid @odi-color-one;
-		}
-		.narrative-component .narrative-progress.selected, .narrative-component .narrative-strapline-title {
-			background-color: @odi-color-one;
-		}
-		.narrative-component {
-			&.matchblock {
-				.narrative-slider-graphic img {
-					background-color: @odi-color-one;
-				}
-			}
-		}
-		.mcq-component .mcq-item label {
-			background-color: @odi-color-one;
-			.no-touch & {
-				&:hover {
-					background-color: darken(@odi-color-one, 20%);
-				}
-				&.visited:hover {
-					background-color: darken(@odi-color-one, 20%);
-				}
-			}
-		}
-		.mcq-component .incorrect label {
-			background-color: darken(@odi-color-one, 20%);
-		}
-		.mcq-widget.disabled .mcq-item label.selected.disabled {
-			background-color: @odi-color-one;
-		}
-		.mcq-widget.disabled .mcq-item label.disabled .mcq-item-icon.mcq-incorrect-icon {
-			color: black;
-		}
-		.buttons button {
-			background-color: @odi-color-one;
-		}
-		.button, button {
-			background-color: @odi-color-one;
-			color: white;
-			a {
-				color: white;
-			}
-		}
-	}
-	&.color-two {
-		.graphic-component {
-			&.matchblock {
-				.graphic-inner img {
-					background-color: @odi-color-two;
-				}
-			}
-		}
-		.accordion-item-title {
-			background-color: @odi-color-two;
-			.no-touch & {
-				&:hover {
-					background-color: darken(@odi-color-two, 20%);
-				}
-				&.visited:hover {
-					background-color: darken(@odi-color-two, 20%);
-				}
-			}
-		}
-		.accordion-item-title:hover {
-			background-color: darken(@odi-color-two, 20%);
-		}
-		.accordion-item-body {
-			border: 3px solid @odi-color-two;
-		}
-		.narrative-component .narrative-progress.selected, .narrative-component .narrative-strapline-title {
-			background-color: @odi-color-two;
-		}
-		.narrative-component {
-			&.matchblock {
-				.narrative-slider-graphic img {
-					background-color: @odi-color-two;
-				}
-			}
-		}
-		.mcq-component .mcq-item label {
-			background-color: @odi-color-two;
-			.no-touch & {
-				&:hover {
-					background-color: darken(@odi-color-two, 20%);
-				}
-				&.visited:hover {
-					background-color: darken(@odi-color-two, 20%);
-				}
-			}
-		}
-		.mcq-component .incorrect label {
-			background-color: darken(@odi-color-two, 20%);
-		}
-		.mcq-widget.disabled .mcq-item label.selected.disabled {
-			background-color: @odi-color-two;
-		}
-		.mcq-widget.disabled .mcq-item label.disabled .mcq-item-icon.mcq-incorrect-icon {
-			color: black;
-		}
-		.buttons button {
-			background-color: @odi-color-two;
-		}
-		.button, button {
-			background-color: @odi-color-two;
-			color: white;
-			a {
-				color: white;
-			}
-		}
-	}
-	&.color-three {
-		.graphic-component {
-			&.matchblock {
-				.graphic-inner img {
-					background-color: @odi-color-three;
-				}
-			}
-		}
-		.accordion-item-title {
-			background-color: @odi-color-three;
-			.no-touch & {
-				&:hover {
-					background-color: darken(@odi-color-three, 20%);
-				}
-				&.visited:hover {
-					background-color: darken(@odi-color-three, 20%);
-				}
-			}
-		}
-		.accordion-item-title:hover {
-			background-color: darken(@odi-color-three, 20%);
-		}
-		.accordion-item-body {
-			border: 3px solid @odi-color-three;
-		}
-		.narrative-component .narrative-progress.selected, .narrative-component .narrative-strapline-title {
-			background-color: @odi-color-three;
-		}
-		.narrative-component {
-			&.matchblock {
-				.narrative-slider-graphic img {
-					background-color: @odi-color-three;
-				}
-			}
-		}
-		.mcq-component .mcq-item label {
-			background-color: @odi-color-three;
-			.no-touch & {
-				&:hover {
-					background-color: darken(@odi-color-three, 20%);
-				}
-				&.visited:hover {
-					background-color: darken(@odi-color-three, 20%);
-				}
-			}
-		}
-		.mcq-component .incorrect label {
-			background-color: darken(@odi-color-three, 20%);
-		}
-		.mcq-widget.disabled .mcq-item label.selected.disabled {
-			background-color: @odi-color-three;
-		}
-		.mcq-widget.disabled .mcq-item label.disabled .mcq-item-icon.mcq-incorrect-icon {
-			color: black;
-		}
-		.buttons button {
-			background-color: @odi-color-three;
-		}
-		.button, button {
-			background-color: @odi-color-three;
-			color: white;
-			a {
-				color: white;
-			}
-		}
-	}
-	&.color-four {
-		.graphic-component {
-			&.matchblock {
-				.graphic-inner img {
-					background-color: @odi-color-four;
-				}
-			}
-		}
-		.accordion-item-title {
-			background-color: @odi-color-four;
-			.no-touch & {
-				&:hover {
-					background-color: darken(@odi-color-four, 20%);
-				}
-				&.visited:hover {
-					background-color: darken(@odi-color-four, 20%);
-				}
-			}
-		}
-		.accordion-item-title:hover {
-			background-color: darken(@odi-color-four, 20%);
-		}
-		.accordion-item-body {
-			border: 3px solid @odi-color-four;
-		}
-		.narrative-component .narrative-progress.selected, .narrative-component .narrative-strapline-title {
-			background-color: @odi-color-four;
-		}
-		.narrative-component {
-			&.matchblock {
-				.narrative-slider-graphic img {
-					background-color: @odi-color-four;
-				}
-			}
-		}
-		.mcq-component .mcq-item label {
-			background-color: @odi-color-four;
-			.no-touch & {
-				&:hover {
-					background-color: darken(@odi-color-four, 20%);
-				}
-				&.visited:hover {
-					background-color: darken(@odi-color-four, 20%);
-				}
-			}
-		}
-		.mcq-component .incorrect label {
-			background-color: darken(@odi-color-four, 20%);
-		}
-		.mcq-widget.disabled .mcq-item label.selected.disabled {
-			background-color: @odi-color-four;
-		}
-		.mcq-widget.disabled .mcq-item label.disabled .mcq-item-icon.mcq-incorrect-icon {
-			color: black;
-		}
-		.buttons button {
-			background-color: @odi-color-four;
-		}
-		.button, button {
-			background-color: @odi-color-four;
-			color: white;
-			a {
-				color: white;
-			}
-		}
-	
-	}
-	&.color-five {
-		.graphic-component {
-			&.matchblock {
-				.graphic-inner img {
-					background-color: @odi-color-five;
-				}
-			}
-		}
-		.accordion-item-title {
-			background-color: @odi-color-five;
-			.no-touch & {
-				&:hover {
-					background-color: darken(@odi-color-five, 20%);
-				}
-				&.visited:hover {
-					background-color: darken(@odi-color-five, 20%);
-				}
-			}
-		}
-		.accordion-item-title:hover {
-			background-color: darken(@odi-color-five, 20%);
-		}
-		.accordion-item-body {
-			border: 3px solid @odi-color-five;
-		}
-		.narrative-component .narrative-progress.selected, .narrative-component .narrative-strapline-title {
-			background-color: @odi-color-five;
-		}
-		.narrative-component {
-			&.matchblock {
-				.narrative-slider-graphic img {
-					background-color: @odi-color-five;
-				}
-			}
-		}
-		.mcq-component .mcq-item label {
-			background-color: @odi-color-five;
-			.no-touch & {
-				&:hover {
-					background-color: darken(@odi-color-five, 20%);
-				}
-				&.visited:hover {
-					background-color: darken(@odi-color-five, 20%);
-				}
-			}
-		}
-		.mcq-component .incorrect label {
-			background-color: darken(@odi-color-five, 20%);
-		}
-		.mcq-widget.disabled .mcq-item label.selected.disabled {
-			background-color: @odi-color-five;
-		}
-		.mcq-widget.disabled .mcq-item label.disabled .mcq-item-icon.mcq-incorrect-icon {
-			color: black;
-		}
-		.buttons button {
-			background-color: @odi-color-five;
-		}
-		.button, button {
-			background-color: @odi-color-five;
-			color: white;
-			a {
-				color: white;
-			}
-		}
-	}
-	&.color-six {
-		.graphic-component {
-			&.matchblock {
-				.graphic-inner img {
-					background-color: @odi-color-six;
-				}
-			}
-		}
-		.accordion-item-title {
-			background-color: @odi-color-six;
-			.no-touch & {
-				&:hover {
-					background-color: darken(@odi-color-six, 20%);
-				}
-				&.visited:hover {
-					background-color: darken(@odi-color-six, 20%);
-				}
-			}
-		}
-		.accordion-item-title:hover {
-			background-color: darken(@odi-color-six, 20%);
-		}
-		.accordion-item-body {
-			border: 3px solid @odi-color-six;
-		}
-		.narrative-component .narrative-progress.selected, .narrative-component .narrative-strapline-title {
-			background-color: @odi-color-six;
-		}
-		.narrative-component {
-			&.matchblock {
-				.narrative-slider-graphic img {
-					background-color: @odi-color-six;
-				}
-			}
-		}
-		.mcq-component .mcq-item label {
-			background-color: @odi-color-six;
-			.no-touch & {
-				&:hover {
-					background-color: darken(@odi-color-six, 20%);
-				}
-				&.visited:hover {
-					background-color: darken(@odi-color-six, 20%);
-				}
-			}
-		}
-		.mcq-component .incorrect label {
-			background-color: darken(@odi-color-six, 20%);
-		}
-		.mcq-widget.disabled .mcq-item label.selected.disabled {
-			background-color: @odi-color-six;
-		}
-		.mcq-widget.disabled .mcq-item label.disabled .mcq-item-icon.mcq-incorrect-icon {
-			color: black;
-		}
-		.buttons button {
-			background-color: @odi-color-six;
-		}
-		.button, button {
-			background-color: @odi-color-six;
-			color: white;
-			a {
-				color: white;
-			}
-		}
-	}
-	&.color-seven {
-		.graphic-component {
-			&.matchblock {
-				.graphic-inner img {
-					background-color: @odi-color-seven;
-				}
-			}
-		}
-		.accordion-item-title {
-			background-color: @odi-color-seven;
-			.no-touch & {
-				&:hover {
-					background-color: darken(@odi-color-seven, 20%);
-				}
-				&.visited:hover {
-					background-color: darken(@odi-color-seven, 20%);
-				}
-			}
-		}
-		.accordion-item-title:hover {
-			background-color: darken(@odi-color-seven, 20%);
-		}
-		.accordion-item-body {
-			border: 3px solid @odi-color-seven;
-		}
-		.narrative-component .narrative-progress.selected, .narrative-component .narrative-strapline-title {
-			background-color: @odi-color-seven;
-		}
-		.narrative-component {
-			&.matchblock {
-				.narrative-slider-graphic img {
-					background-color: @odi-color-seven;
-				}
-			}
-		}
-		.mcq-component .mcq-item label {
-			background-color: @odi-color-seven;
-			.no-touch & {
-				&:hover {
-					background-color: darken(@odi-color-seven, 20%);
-				}
-				&.visited:hover {
-					background-color: darken(@odi-color-seven, 20%);
-				}
-			}
-		}
-		.mcq-component .incorrect label {
-			background-color: darken(@odi-color-seven, 20%);
-		}
-		.mcq-widget.disabled .mcq-item label.selected.disabled {
-			background-color: @odi-color-seven;
-		}
-		.mcq-widget.disabled .mcq-item label.disabled .mcq-item-icon.mcq-incorrect-icon {
-			color: black;
-		}
-		.buttons button {
-			background-color: @odi-color-seven;
-		}
-		.button, button {
-			background-color: @odi-color-seven;
-			color: white;
-			a {
-				color: white;
-			}
-		}
-	}
-	&.color-eight {
-		.graphic-component {
-			&.matchblock {
-				.graphic-inner img {
-					background-color: @odi-color-eight;
-				}
-			}
-		}
-		.accordion-item-title {
-			background-color: @odi-color-eight;
-			.no-touch & {
-				&:hover {
-					background-color: darken(@odi-color-eight, 20%);
-				}
-				&.visited:hover {
-					background-color: darken(@odi-color-eight, 20%);
-				}
-			}
-		}
-		.accordion-item-title:hover {
-			background-color: darken(@odi-color-eight, 20%);
-		}
-		.accordion-item-body {
-			border: 3px solid @odi-color-eight;
-		}
-		.narrative-component .narrative-progress.selected, .narrative-component .narrative-strapline-title {
-			background-color: @odi-color-eight;
-		}
-		.narrative-component {
-			&.matchblock {
-				.narrative-slider-graphic img {
-					background-color: @odi-color-eight;
-				}
-			}
-		}
-		.mcq-component .mcq-item label {
-			background-color: @odi-color-eight;
-			.no-touch & {
-				&:hover {
-					background-color: darken(@odi-color-eight, 20%);
-				}
-				&.visited:hover {
-					background-color: darken(@odi-color-eight, 20%);
-				}
-			}
-		}
-		.mcq-component .incorrect label {
-			background-color: darken(@odi-color-eight, 20%);
-		}
-		.mcq-widget.disabled .mcq-item label.selected.disabled {
-			background-color: @odi-color-eight;
-		}
-		.mcq-widget.disabled .mcq-item label.disabled .mcq-item-icon.mcq-incorrect-icon {
-			color: black;
-		}
-		.buttons button {
-			background-color: @odi-color-eight;
-		}
-		.button, button {
-			background-color: @odi-color-eight;
-			color: white;
-			a {
-				color: white;
-			}
-		}
-	}
-	&.color-nine {
-		.graphic-component {
-			&.matchblock {
-				.graphic-inner img {
-					background-color: @odi-color-nine;
-				}
-			}
-		}
-		.accordion-item-title {
-			background-color: @odi-color-nine;
-			.no-touch & {
-				&:hover {
-					background-color: darken(@odi-color-nine, 20%);
-				}
-				&.visited:hover {
-					background-color: darken(@odi-color-nine, 20%);
-				}
-			}
-		}
-		.accordion-item-title:hover {
-			background-color: darken(@odi-color-nine, 20%);
-		}
-		.accordion-item-body {
-			border: 3px solid @odi-color-nine;
-		}
-		.narrative-component .narrative-progress.selected, .narrative-component .narrative-strapline-title {
-			background-color: @odi-color-nine;
-		}
-		.narrative-component {
-			&.matchblock {
-				.narrative-slider-graphic img {
-					background-color: @odi-color-nine;
-				}
-			}
-		}
-		.mcq-component .mcq-item label {
-			background-color: @odi-color-nine;
-			.no-touch & {
-				&:hover {
-					background-color: darken(@odi-color-nine, 20%);
-				}
-				&.visited:hover {
-					background-color: darken(@odi-color-nine, 20%);
-				}
-			}
-		}
-		.mcq-component .incorrect label {
-			background-color: darken(@odi-color-nine, 20%);
-		}
-		.mcq-widget.disabled .mcq-item label.selected.disabled {
-			background-color: @odi-color-nine;
-		}
-		.mcq-widget.disabled .mcq-item label.disabled .mcq-item-icon.mcq-incorrect-icon {
-			color: black;
-		}
-		.buttons button {
-			background-color: @odi-color-nine;
-		}
-		.button, button {
-			background-color: @odi-color-nine;
-			color: white;
-			a {
-				color: white;
-			}
-		}
-	}
-	&.color-ten {
-		.graphic-component {
-			&.matchblock {
-				.graphic-inner img {
-					background-color: @odi-color-ten;
-				}
-			}
-		}
-		.accordion-item-title {
-			background-color: @odi-color-ten;
-			.no-touch & {
-				&:hover {
-					background-color: darken(@odi-color-ten, 20%);
-				}
-				&.visited:hover {
-					background-color: darken(@odi-color-ten, 20%);
-				}
-			}
-		}
-		.accordion-item-title:hover {
-			background-color: darken(@odi-color-ten, 20%);
-		}
-		.accordion-item-body {
-			border: 3px solid @odi-color-ten;
-		}
-		.narrative-component .narrative-progress.selected, .narrative-component .narrative-strapline-title {
-			background-color: @odi-color-ten;
-		}
-		.narrative-component {
-			&.matchblock {
-				.narrative-slider-graphic img {
-					background-color: @odi-color-ten;
-				}
-			}
-		}
-		.mcq-component .mcq-item label {
-			background-color: @odi-color-ten;
-			.no-touch & {
-				&:hover {
-					background-color: darken(@odi-color-ten, 20%);
-				}
-				&.visited:hover {
-					background-color: darken(@odi-color-ten, 20%);
-				}
-			}
-		}
-		.mcq-component .incorrect label {
-			background-color: darken(@odi-color-ten, 20%);
-		}
-		.mcq-widget.disabled .mcq-item label.selected.disabled {
-			background-color: @odi-color-ten;
-		}
-		.mcq-widget.disabled .mcq-item label.disabled .mcq-item-icon.mcq-incorrect-icon {
-			color: black;
-		}
-		.buttons button {
-			background-color: @odi-color-ten;
-		}
-		.button, button {
-			background-color: @odi-color-ten;
-			color: white;
-			a {
-				color: white;
-			}
-		}
-	}
-	&.inverted {
-		a, a:hover, a:visited {
-			color: @primary-color-inverted;
-		}
-		.buttons button {
-			background-color: @white;
-		}
-		.narrative-component .narrative-progress {
-			background-color: @primary-color-inverted;
-			border: 1px solid @primary-color-inverted;
-		}
-		.accordion-item-title {
-			background-color: @primary-color-inverted;
-			.no-touch & {
-				&:hover {
-					background-color: darken(@primary-color-inverted, 20%);
-				}
-				&.visited:hover {
-					background-color: darken(@primary-color-inverted, 20%);
-				}
-			}
-		}
-		.accordion-item-title:hover {
-			background-color: darken(@primary-color-inverted, 20%);
-		}
-		.accordion-item-body {
-			border: 3px solid @primary-color-inverted;
-			color: @primary-color-inverted;
-		}
-		.mcq-component .mcq-item, .mcq-component .mcq-item label {
-			background-color: @primary-color-inverted;
-			.no-touch & {
-				&:hover {
-					background-color: darken(@primary-color-inverted, 20%);
-				}
-				&.visited:hover {
-					background-color: darken(@primary-color-inverted, 20%);
-				}
-			}
-		}
-		.mcq-component .mcq-item:hover {
-			background-color: darken(@primary-color-inverted, 20%);
-		}
-		.mcq-component .incorrect label {
-			background-color: darken(@primary-color-inverted, 20%);
-		}
-		.mcq-widget.disabled .mcq-item label.selected.disabled {
-			background-color: @primary-color-inverted;
-		}
-		&.color-one {
-			background-color: @odi-color-one;
-			.narrative-component .narrative-progress.selected {
-				background-color: @odi-color-one;
-			}
-			.accordion-item-title-icon, .accordion-item-title {
-				color: @odi-color-one;
-			}
-			.accordion-item-body {
-				background-color: @odi-color-one;
-			}
-			.mcq-component .mcq-item label, .mcq-component .mcq-item label.selected .mcq-item-icon, .mcq-component .mcq-item label .mcq-answer-icon {
-				color: @odi-color-one;
-			}
-			.mcq-answer-icon.checkbox {
-				border: 3px solid @odi-color-one;
-			}
-			.button {
-				background-color: @white;
-				color: @odi-color-one;
-			}
-			.buttons button a {
-				color: @odi-color-one;
-			}
-		}
-		&.color-two {
-			background-color: @odi-color-two;
-			.narrative-component .narrative-progress.selected {
-				background-color: @odi-color-two;
-			}
-			.accordion-item-title-icon, .accordion-item-title {
-				color: @odi-color-two;
-			}
-			.accordion-item-body {
-				background-color: @odi-color-two;
-			}
-			.mcq-component .mcq-item label, .mcq-component .mcq-item label.selected .mcq-item-icon, .mcq-component .mcq-item label .mcq-answer-icon {
-				color: @odi-color-two;
-			}
-			.mcq-answer-icon.checkbox {
-				border: 3px solid @odi-color-two;
-			}
-			.button {
-				background-color: @white;
-				color: @odi-color-two;
-			}
-			.buttons button a {
-				color: @odi-color-two;
-			}
-		}
-		&.color-three {
-			background-color: @odi-color-three;
-			.narrative-component .narrative-progress.selected {
-				background-color: @odi-color-three;
-			}
-			.accordion-item-title-icon, .accordion-item-title {
-				color: @odi-color-three;
-			}
-			.accordion-item-body {
-				background-color: @odi-color-three;
-			}
-			.mcq-component .mcq-item label, .mcq-component .mcq-item label.selected .mcq-item-icon, .mcq-component .mcq-item label .mcq-answer-icon {
-				color: @odi-color-three;
-			}
-			.mcq-answer-icon.checkbox {
-				border: 3px solid @odi-color-three;
-			}
-			.button {
-				background-color: @white;
-				color: @odi-color-three;
-			}
-			.buttons button a {
-				color: @odi-color-three;
-			}
-		}
-		&.color-four {
-			background-color: @odi-color-four;
-			.narrative-component .narrative-progress.selected {
-				background-color: @odi-color-four;
-			}
-			.accordion-item-title-icon, .accordion-item-title {
-				color: @odi-color-four;
-			}
-			.accordion-item-body {
-				background-color: @odi-color-four;
-			}
-			.mcq-component .mcq-item label, .mcq-component .mcq-item label.selected .mcq-item-icon, .mcq-component .mcq-item label .mcq-answer-icon {
-				color: @odi-color-four;
-			}
-			.mcq-answer-icon.checkbox {
-				border: 3px solid @odi-color-four;
-			}
-			.button {
-				background-color: @white;
-				color: @odi-color-four;
-			}
-			.buttons button a {
-				color: @odi-color-four;
-			}
-		}
-		&.color-five {
-			background-color: @odi-color-five;
-			.narrative-component .narrative-progress.selected {
-				background-color: @odi-color-five;
-			}
-			.accordion-item-title-icon, .accordion-item-title {
-				color: @odi-color-five;
-			}
-			.accordion-item-body {
-				background-color: @odi-color-five;
-			}
-			.mcq-component .mcq-item label, .mcq-component .mcq-item label.selected .mcq-item-icon, .mcq-component .mcq-item label .mcq-answer-icon {
-				color: @odi-color-five;
-			}
-			.mcq-answer-icon.checkbox {
-				border: 3px solid @odi-color-five;
-			}
-			.button {
-				background-color: @white;
-				color: @odi-color-five;
-			}
-			.buttons button a {
-				color: @odi-color-five;
-			}
-		}
-		&.color-six {
-			background-color: @odi-color-six;
-			.narrative-component .narrative-progress.selected {
-				background-color: @odi-color-six;
-			}
-			.accordion-item-title-icon, .accordion-item-title {
-				color: @odi-color-six;
-			}
-			.accordion-item-body {
-				background-color: @odi-color-six;
-			}
-			.mcq-component .mcq-item label, .mcq-component .mcq-item label.selected .mcq-item-icon, .mcq-component .mcq-item label .mcq-answer-icon {
-				color: @odi-color-six;
-			}
-			.mcq-answer-icon.checkbox {
-				border: 3px solid @odi-color-six;
-			}
-			.button {
-				background-color: @white;
-				color: @odi-color-six;
-			}
-			.buttons button a {
-				color: @odi-color-six;
-			}
-		}
-		&.color-seven {
-			background-color: @odi-color-seven;
-			.narrative-component .narrative-progress.selected {
-				background-color: @odi-color-seven;
-			}
-			.accordion-item-title-icon, .accordion-item-title {
-				color: @odi-color-seven;
-			}
-			.accordion-item-body {
-				background-color: @odi-color-seven;
-			}
-			.mcq-component .mcq-item label, .mcq-component .mcq-item label.selected .mcq-item-icon, .mcq-component .mcq-item label .mcq-answer-icon {
-				color: @odi-color-seven;
-			}
-			.mcq-answer-icon.checkbox {
-				border: 3px solid @odi-color-seven;
-			}
-			.button {
-				background-color: @white;
-				color: @odi-color-seven;
-			}
-			.buttons button a {
-				color: @odi-color-seven;
-			}
-		}
-		&.color-eight {
-			background-color: @odi-color-eight;
-			.narrative-component .narrative-progress.selected {
-				background-color: @odi-color-eight;
-			}
-			.accordion-item-title-icon, .accordion-item-title {
-				color: @odi-color-eight;
-			}
-			.accordion-item-body {
-				background-color: @odi-color-eight;
-			}
-			.mcq-component .mcq-item label, .mcq-component .mcq-item label.selected .mcq-item-icon, .mcq-component .mcq-item label .mcq-answer-icon {
-				color: @odi-color-eight;
-			}
-			.mcq-answer-icon.checkbox {
-				border: 3px solid @odi-color-eight;
-			}
-			.button {
-				background-color: @white;
-				color: @odi-color-eight;
-			}
-			.buttons button a {
-				color: @odi-color-eight;
-			}
-		}
-		&.color-nine {
-			background-color: @odi-color-nine;
-			.narrative-component .narrative-progress.selected {
-				background-color: @odi-color-nine;
-			}
-			.accordion-item-title-icon, .accordion-item-title {
-				color: @odi-color-nine;
-			}
-			.accordion-item-body {
-				background-color: @odi-color-nine;
-			}
-			.mcq-component .mcq-item label, .mcq-component .mcq-item label.selected .mcq-item-icon, .mcq-component .mcq-item label .mcq-answer-icon {
-				color: @odi-color-nine;
-			}
-			.mcq-answer-icon.checkbox {
-				border: 3px solid @odi-color-nine;
-			}
-			.button {
-				background-color: @white;
-				color: @odi-color-nine;
-			}
-			.buttons button a {
-				color: @odi-color-nine;
-			}
-		}
-		&.color-ten {
-			background-color: @odi-color-ten;
-			.narrative-component .narrative-progress.selected {
-				background-color: @odi-color-ten;
-			}
-			.accordion-item-title-icon, .accordion-item-title {
-				color: @odi-color-ten;
-			}
-			.accordion-item-body {
-				background-color: @odi-color-ten;
-			}
-			.mcq-component .mcq-item label, .mcq-component .mcq-item label.selected .mcq-item-icon, .mcq-component .mcq-item label .mcq-answer-icon {
-				color: @odi-color-ten;
-			}
-			.mcq-answer-icon.checkbox {
-				border: 3px solid @odi-color-ten;
-			}
-			.button {
-				background-color: @white;
-				color: @odi-color-ten;
-			}
-			.buttons button a {
-				color: @odi-color-ten;
 			}
 		}
 	}

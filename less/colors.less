@@ -2,52 +2,71 @@
 // =============
 
 @white: #ffffff;
-@black: #4b4e4f;
-@blue: #078292;
-@light-grey: #78909c;
-@mid-grey: #6d6d6d;
-@dark-grey: #37474f;
+@black: #000000;
+@blue: #3099FF;
+@light-grey: #cccccc;
+@mid-grey: #999999;
+@dark-grey: #666666;
 @red: #f26c4f;
-@green: #82ca9c;
-@main-title: #363535;
+@green: #309966;
+@main-title: @black;
 
 @default-width:1024px;
 
-@primary-color:#00ace7;
-@secondary-color:#1b87b2;
-@tertiary-color:#0dbc37;
+@color-one:@blue; //blue
+@color-two:@dark-grey; //dark-grey
+@color-three:#7d82be; //purple
+@color-four:#ff9000; // yellow
+@color-five:#de4a8d; //pink
+@color-six:#ff6600; // orange
+@color-seven:#333666; // dark-purple
+@color-eight:#006699; // dark-blue
+@color-nine:#006633; // dark-green
+@color-ten:@black;
 
-@odi-color-one:#00ace8; // Light blue (secondary )
-@odi-color-two:#f9bc26; //yellow
-@odi-color-three:#ff6700; // dark orange
-@odi-color-four:#0dbc37; //dark green
-@odi-color-five:#722ea5; //purple
-@odi-color-six:#2254F4; //dark blue    
-@odi-color-seven:#D60303;//red 
-@odi-color-eight:#EF3AAB;//pink
-@odi-color-nine:#E6007C ;//magenta
-@odi-color-ten:#1dd3a7;//light green
-@odi-color-eleven:#000000;//black
-@odi-color-twelve:#333333;//dark grey
-@odi-color-thirteen:#999999;//medium grey
-@odi-color-fourteen:#2F529F;//medium blue
-@menu-header-background-color: @white;
+@colors: @color-one,@color-two,@color-three,@color-four,@color-five,@color-six,@color-seven,@color-eight,@color-nine,@color-ten;
+
+//@color-ten:#9A8419;
+//@color-four:#d1d2d4;
+//@color-five:#007aba;
+//@color-six:#F86D18;
+//@color-seven:#bb007b;
+//@color-eight:#20609a;
+//@color-nine:#e6e7e9;
+//@color-ten:#000000;
+
+@menu-header-background-color: white;
+@primary-color:@color-one;
+@secondary-color:@color-two;
+@tertiary-color:@color-three;
 
 // Main Colors
 // ===========
 
 // Components
-@primary-color: @odi-color-one;
+@primary-color: @color-one;
 @primary-color-inverted: @white;
+@color-one-inverted: @primary-color-inverted;
 // Buttons
-@secondary-color: @black;
+@secondary-color: @color-two;
 @secondary-color-inverted: @white;
+@color-two-inverted: @secondary-color-inverted;
 // Navigation Bar
-@tertiary-color: #000;
-@tertiary-color-inverted: #fff;
+@tertiary-color: @color-three;
+@tertiary-color-inverted: @white;
+@color-three-inverted: @tertiary-color-inverted;
 // Drawer
 @quaternary-color: @dark-grey;
 @quaternary-color-inverted: @white;
+@color-four-inverted: @quaternary-color-inverted;
+
+@color-five-inverted: @primary-color-inverted;
+@color-six-inverted: @primary-color-inverted;
+@color-seven-inverted: @primary-color-inverted;
+@color-eight-inverted: @primary-color-inverted;
+@color-nine-inverted: @primary-color-inverted;
+@color-ten-inverted: @primary-color-inverted;
+
 // Body
 @foreground-color: @black;
 @background-color: @white;
@@ -63,6 +82,10 @@
 @transparency: rgba(255,255,255,0.8);
 @transparency-fallback-png: url('assets/transparency-light.png');
 
+@colors-inverted: @color-one-inverted,@color-two-inverted,@color-three-inverted,@color-four-inverted,@color-five-inverted,@color-six-inverted,@color-seven-inverted,@color-eight-inverted,@color-nine-inverted,@color-ten-inverted;
+
+@menu-color-count: 3;
+
 // Detailed Color setup
 // ====================
 
@@ -73,7 +96,8 @@
 @title-color-inverted: @primary-color-inverted;
 
 // Buttons
-@button-color: @odi-color-five;
+@button-color: @color-one;
+@menu-button-color: @color-one;
 @button-color-inverted: @primary-color-inverted;
 @button-color-hover: darken(@button-color, 40%);
 @button-color-disabled: @disabled-color;
@@ -87,7 +111,7 @@
 @button-border-color-disabled: @button-color-disabled;
 
 // Navigation 
-@navigation-color: @tertiary-color;
+@navigation-color: @black;
 
 @navigation-icon-color: @tertiary-color-inverted;
 @navigation-icon-color-hover: darken(@navigation-icon-color, 40%);

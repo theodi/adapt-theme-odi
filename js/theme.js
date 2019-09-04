@@ -1,9 +1,10 @@
-var theme="ODI";
+var theme="odi";
 define(function(require) {
 	
 	var Adapt = require('coreJS/adapt');
 	var Backbone = require('backbone');
 	var ThemeBlock = require('theme/adapt-theme-odi/js/theme-block');
+	var msjquery = require('theme/adapt-theme-odi/js/jquery.dd.js');
 	var emailPresent = false;
 
 	// Block View
@@ -77,6 +78,8 @@ define(function(require) {
 	var click_bind = false;
 
 	function showMessage(phraseId) {
+		console.log("In show message");
+		
 		var saveTitle = Adapt.course.get('_trackingHub').saveTitle;
 		var saveBody = Adapt.course.get('_trackingHub').saveBody;
 		var items = Adapt.course.get('_trackingHub').fields;
@@ -94,10 +97,9 @@ define(function(require) {
 		saveBody = saveBody + fields;
 
 		var alertObject = {
-            		title: saveTitle,
-		        body: saveBody
-	        };
-	
+            title: saveTitle,
+            body: saveBody
+        };
         
         Adapt.once("notify:closed", function() {
             Adapt.trigger("tutor:closed");
@@ -106,6 +108,8 @@ define(function(require) {
         Adapt.trigger('notify:popup', alertObject);
 
         Adapt.trigger('tutor:opened');
+
+        $("#countries").msDropdown();
 	}
 
 	function addListeners() {
@@ -161,7 +165,6 @@ define(function(require) {
 	}
 
 });
-
 
 function validateInput(user) {
 	valid = true;

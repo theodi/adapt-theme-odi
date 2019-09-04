@@ -1,7 +1,7 @@
 .menu {
 	.hidden { display: none; } 
 
-	background: @background-color;
+	background: white;
 
 	.menu-container {
 		width: 100%;
@@ -13,7 +13,6 @@
 
 	.menu-header {
 		margin-bottom: -30px;
-		background-size: cover;
 		background-color: @menu-header-background-color;
     		@media all and (max-width:(@device-width-medium - 1px)) {
 			margin-bottom: 10px;
@@ -27,7 +26,7 @@
 		text-align: left;
 
         	@media all and (max-width: (@device-width-large + 20px)) {
-	            padding: (@menu-header-padding-top / 2) 20px (@menu-header-padding-bottom / 2);
+	            padding: 20px 10px 20px;
 	        }
 
 	        @media all and (max-width: (@device-width-small + 20px)) {
@@ -37,7 +36,7 @@
 
 	.menu-title {
 		margin: @menu-block-title-margin-top 0 @menu-block-title-margin-bottom;
-		color: @background-color-inverted;
+		color: #111;
 	}
 	.menu-title-inner {
 		padding-top: 10px;
@@ -53,13 +52,14 @@
 	}
 	.menu-body {
 		margin: @menu-block-body-margin-bottom 0;
-		color: @background-color-inverted;
+		color: #111;
 	}
 	.menu-body-inner p {
-		padding-top: 10px;
+		margin-top: 0px;
+		padding-top: 0px;
 		display: inline-block;
    		line-height: 1.6em;
-	        padding-bottom: 10px;
+	        padding-bottom: 0px;
 		padding-left: 10px;
 		padding-right: 10px;
 		-webkit-box-decoration-break: clone;
@@ -68,6 +68,12 @@
 		box-decoration-break: clone;
 	}
 	.menu-item {
+		@media all and (max-width: @device-width-medium) {
+			width: 50%;
+		}
+		@media all and (max-width: @device-width-small) {
+			width: 100%;
+		}
 		margin: 0 auto 30px;
 
 		&.nth-child-even{
@@ -82,9 +88,9 @@
 		&.nth-child-odd {
 			.menu-item-inner {
 				margin-right:2%;
-                .dir-rtl & {
-                    margin-left:2%;
-                }
+				.dir-rtl & {
+					margin-left:2%;
+				}
 			}
 		}
 	}
@@ -98,6 +104,9 @@
 		color: @menu-item-text-color;
 		@media all and (min-width: (@device-width-large + 20px)) {
 			min-height: @menu-height;
+		}
+		@media all and (min-width: (@device-width-medium)) {
+			min-height: (@menu-height + 50px);
 		}
 	}
 
@@ -174,16 +183,16 @@
 		
 		button {
 			padding: @button-padding-top (@button-padding-right*2) @button-padding-bottom (@button-padding-left*2);
-			background-color:@button-color;
+			background-color:darken(@menu-button-color, 20%);
 			color:@button-text-color;
 			
 			&:hover {
-				background-color:darken(@button-color, 20%);
+				background-color:darken(@menu-button-color, 30%);
 				color:@button-text-color-hover;
 			}
 			
 			&.visited {
-				background-color: @button-color;
+				background-color:darken(@menu-button-color, 20%);
 				color:@button-text-color-disabled;
 			}
 		}
