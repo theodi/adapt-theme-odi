@@ -148,6 +148,17 @@ h5 {
 	display: inline-block;
 }
 .navigation {
+	& when (@nav-logo-position = center) {
+		.navigation-inner {
+			background-image: url("@{navigation-logo}");
+    		background-position: center;
+    		background-repeat: no-repeat;
+    		background-size: @nav-logo-height;
+    		@media all and (max-width: @device-width-small) {
+    			background-size: @nav-logo-mobile;
+    		}
+		}
+	}
 	img.navigation-logo {
 		content: url("@{navigation-logo}");
 		float: @nav-logo-position;
@@ -158,6 +169,9 @@ h5 {
 		}
 		& when (@nav-logo-position = right) {
 			padding-right: @nav-logo-padding-left-right;	
+		}
+		& when (@nav-logo-position = center) {
+			display: none;
 		}
 		@media all and (max-width: @device-width-small) {
 			height: @nav-logo-height-mobile;

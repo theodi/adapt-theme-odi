@@ -108,10 +108,10 @@
           },
           "nav-logo-position": {
             "title": "Position of the logo in the nav bar",
-            "help": "Left or right",
+            "help": "Left, right or center",
             "type": "string",
-            "enum": ["left", "right"],
-            "default": "left"
+            "enum": ["left", "right", "center"],
+            "default": "center"
           },
           "nav-logo-height": {
             "title": "Navigation logo height",
