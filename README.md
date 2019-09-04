@@ -1,6 +1,10 @@
-# adapt-theme-odi
+# adapt-theme-coloured-blocks
 
-This theme is adapted from the adapt vanilla theme
+This theme is adapted from the adapt vanilla theme.
+
+It has been designed to allow blocks to be visually separated through the use of alternating colours (at article level) or mixed colours (at block level). 
+
+Play with it to find out how it works, it is pretty flexible. 
 
 ## Settings overview
 

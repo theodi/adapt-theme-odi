@@ -1,10 +1,10 @@
-var theme="odi";
+var theme="CB";
 define(function(require) {
 	
 	var Adapt = require('coreJS/adapt');
 	var Backbone = require('backbone');
-	var ThemeBlock = require('theme/adapt-theme-odi/js/theme-block');
-	var msjquery = require('theme/adapt-theme-odi/js/jquery.dd.js');
+	var ThemeBlock = require('theme/adapt-theme-coloured-blocks/js/theme-block');
+	var msjquery = require('theme/adapt-theme-coloured-blocks/js/jquery.dd.js');
 	var emailPresent = false;
 
 	// Block View
@@ -138,9 +138,9 @@ define(function(require) {
 
 
 	function checkWelcome(user) {
-		if (!user.email && !localStorage.getItem("ODI_Welcome_Done")) {
+		if (!user.email && !localStorage.getItem("Welcome_Done")) {
 			showMessage('enter_email');
-			localStorage.setItem("ODI_Welcome_Done",true);
+			localStorage.setItem("Welcome_Done",true);
 		}
 	}
 

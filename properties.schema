@@ -16,7 +16,7 @@
           "type" : "string",
           "inputType" : "Text",
           "title" : "Contact email",
-          "default" : "training@theodi.org",
+          "default" : "contact@example.com",
           "help" : "The email contact for the footer",
           "translatable" : true
       },
